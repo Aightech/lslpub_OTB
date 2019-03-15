@@ -25,7 +25,7 @@ void printBIN(char n)
 	unsigned char mask = 0b10000000;
 	for(i=0;i<8;i++)
 		{
-			std::cout << ( ((n & mask)!=0)?1:0 )<< std::endl;
+			std::cout << ( ((n & mask)!=0)?1:0 );
 			mask = mask >> 1;
 		}
 	std::cout << std::endl;

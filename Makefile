@@ -8,7 +8,7 @@ CXXFLAGS:=$(BASIC_CFLAGS) -std=c++11 $(INCLUDE) $(CXXFLAGS)
 TARGETS:= lslsub_OTB
 all: $(TARGETS) clean
 
-lslsub_OTB: src/*.cpp
+lslsub_OTB: src/*.cpp src/*.c
 $(TARGETS):
 	$(CXX) $(CXXFLAGS) $^ -o $@ $(LFLAGS)
 

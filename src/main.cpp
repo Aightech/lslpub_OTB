@@ -11,10 +11,11 @@
 
 #include <lsl_cpp.h>
 #include "OTBconfig.h"
+#include "conio.h"
 
 #define NB_CHANNELS 408
 #define SAMPLING_FREQUENCY 2048
-#define CHUNK_SIZE 1024
+#define CHUNK_SIZE 512
 
 #pragma pack(1)
 typedef struct _data_sample {
@@ -28,7 +29,7 @@ void error(const char *msg)
 	exit(0);
 }
 
-void fill_chunk(char* from, std::vector<data_sample>& to)
+void fill_chunk(unsigned char* from, std::vector<data_sample>& to)
 {
 	to.clear();
 	for (unsigned i = 0; i < CHUNK_SIZE; ++i)
@@ -36,7 +37,16 @@ void fill_chunk(char* from, std::vector<data_sample>& to)
 			data_sample d;
 			to.push_back(d);
 			for(unsigned j = 0; j < NB_CHANNELS; j++)
-				to[i].channel[j] = ((from[i*2]&0xFF) << 8) |  (from[i*2+1]&0xFF);
+				{
+					to[i].channel[j] = (short)( (from[(i*NB_CHANNELS+j)*2]) |  (from[(i*NB_CHANNELS+j)*2+1]<<8));
+					/*std::cout << (int)from[(i*NB_CHANNELS+j)*2] << std::endl;
+					printBIN(from[(i*NB_CHANNELS+j)*2]);
+					std::cout << (int)from[(i*NB_CHANNELS+j)*2+1] << std::endl;
+					printBIN(from[(i*NB_CHANNELS+j)*2]);
+					std::cout << to[i].channel[j] << std::endl;
+				        std::cout << std::endl;*/
+				}
+					
 		}
 }
 
@@ -77,28 +87,47 @@ int main()
 
 
 	
-	std::cout << "[INFOS] Sending configuration request to OTB quattrocento ...\xd" << std::flush;
+	std::cout << "[INFOS] Reseting  OTB quattrocento acquisition...\xd" << std::flush;
+	config[0] -= 1;
+	config[39] = crc(config);
 	write(sockfd,config,40);
-	std::cout << "[INFOS] OTB quattrocento configured." << std::endl;
+	std::cout << "[INFOS] Sending configuration request to OTB quattrocento ...\xd" << std::flush;
+	config[0] += 1;
+	config[39] = crc(config);
+	write(sockfd,config,40);
+	std::cout << "[INFOS] OTB quattrocento configured.                         " << std::endl;
 
     	try {
-	        lsl::stream_info info("OTB", "quattrocentoSamples", NB_CHANNELS);
+	        lsl::stream_info info("OTB", "quattrocentoSamples", NB_CHANNELS, lsl::IRREGULAR_RATE,lsl::cf_int16);
 		lsl::stream_outlet outlet(info);
 
-		std::cout << "[INFOS] Now sending data..." << std::endl;
+		std::cout << "[INFOS] Now sending data... (press k to exit)" << std::endl;
+		std::cout << "+--------+-------+-------+-------+-------+" << std::endl;
+	        for(int i=0;i<5;i++)
+			std::cout << "|\t" << i ;
+		std::cout << "|" << std::endl;
+		std::cout << "+--------+-------+-------+-------+-------+" << std::endl;
 		std::vector<data_sample> chunk;
-		char buffer[NB_CHANNELS*CHUNK_SIZE*2];
-		for (;;)
-			{
-				int data_remaining = NB_CHANNELS*CHUNK_SIZE*2;
-				while(data_remaining > 0)
-						data_remaining -= read(sockfd,buffer+(NB_CHANNELS*CHUNK_SIZE*2-data_remaining), data_remaining);
+		unsigned char buffer[NB_CHANNELS*CHUNK_SIZE*2];
+		bool Kpressed = true;
+		do {
+			int data_remaining = NB_CHANNELS*CHUNK_SIZE*2;
+			while(data_remaining > 0)
+				data_remaining -= read(sockfd,buffer+(NB_CHANNELS*CHUNK_SIZE*2-data_remaining), data_remaining);
 				
-				fill_chunk(buffer,chunk);
+			fill_chunk(buffer,chunk);
+			for(int i=0;i<5;i++)
+				std::cout << "|" << chunk[CHUNK_SIZE-1].channel[i] << "\t " ;
+			std::cout << "|\xd" << std::flush;
 
-				// send it
-				outlet.push_chunk_numeric_structs(chunk);
-			}
+			// send it
+			outlet.push_chunk_numeric_structs(chunk);
+			
+			if (_kbhit())
+				Kpressed = (toupper((char)_getch()) != 'K');
+			
+		}
+		while (Kpressed);
 
 	} catch (std::exception& e) { std::cerr << "[ERROR] Got an exception: " << e.what() << std::endl; }
 
@@ -108,7 +137,7 @@ int main()
         config[39] = crc(config);
         write(sockfd,config,40);
 	close(sockfd);
-	std::cout << "[INFOS] Acquisition ended." << std::endl;
+	std::cout << "[INFOS] Acquisition ended.     " << std::endl;
     
 	return 0;
 }
