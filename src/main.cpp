@@ -17,11 +17,6 @@
 #define SAMPLING_FREQUENCY 2048
 #define CHUNK_SIZE 512
 
-#pragma pack(1)
-typedef struct _data_sample {
-        short channel[NB_CHANNELS];
-} data_sample;
-
 
 void error(const char *msg)
 {
@@ -29,16 +24,16 @@ void error(const char *msg)
 	exit(0);
 }
 
-void fill_chunk(unsigned char* from, std::vector<data_sample>& to)
+void fill_chunk(unsigned char* from, std::vector<std::vector<int16_t>>& to)
 {
 	to.clear();
 	for (unsigned i = 0; i < CHUNK_SIZE; ++i)
 		{
-			data_sample d;
+			std::vector<int16_t> d;
 			to.push_back(d);
 			for(unsigned j = 0; j < NB_CHANNELS; j++)
 				{
-					to[i].channel[j] = (short)( (from[(i*NB_CHANNELS+j)*2]) |  (from[(i*NB_CHANNELS+j)*2+1]<<8));
+					to[i].push_back( (short)( (from[(i*NB_CHANNELS+j)*2]) |  (from[(i*NB_CHANNELS+j)*2+1]<<8)) );
 					/*std::cout << (int)from[(i*NB_CHANNELS+j)*2] << std::endl;
 					printBIN(from[(i*NB_CHANNELS+j)*2]);
 					std::cout << (int)from[(i*NB_CHANNELS+j)*2+1] << std::endl;
@@ -107,7 +102,7 @@ int main()
 			std::cout << "|\t" << i ;
 		std::cout << "|" << std::endl;
 		std::cout << "+--------+-------+-------+-------+-------+" << std::endl;
-		std::vector<data_sample> chunk;
+		std::vector<std::vector<int16_t>> chunk;
 		unsigned char buffer[NB_CHANNELS*CHUNK_SIZE*2];
 		bool Kpressed = true;
 		do {
@@ -117,11 +112,12 @@ int main()
 				
 			fill_chunk(buffer,chunk);
 			for(int i=0;i<5;i++)
-				std::cout << "|" << chunk[CHUNK_SIZE-1].channel[i] << "\t " ;
+				std::cout << "|" << chunk[t][i] << "\t " ;
 			std::cout << "|\xd" << std::flush;
+		        
 
 			// send it
-			outlet.push_chunk_numeric_structs(chunk);
+			outlet.push_chunk(chunk);
 			
 			if (_kbhit())
 				Kpressed = (toupper((char)_getch()) != 'K');
