@@ -112,7 +112,7 @@ int main()
 				
 			fill_chunk(buffer,chunk);
 			for(int i=0;i<5;i++)
-				std::cout << "|" << chunk[t][i] << "\t " ;
+				std::cout << "|" << chunk[0][i] << "\t " ;
 			std::cout << "|\xd" << std::flush;
 		        
 
