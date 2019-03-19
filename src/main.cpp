@@ -1,48 +1,4 @@
-#ifdef WIN32 /* si vous êtes sous Windows */
 
-#include <winsock2.h> 
-
-#elif defined (linux) /* si vous êtes sous Linux */
-
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-#include <unistd.h> /* close */
-#include <netdb.h> /* gethostbyname */
-#define INVALID_SOCKET -1
-#define SOCKET_ERROR -1
-#define closesocket(s) close(s)
-typedef int SOCKET;
-typedef struct sockaddr_in SOCKADDR_IN;
-typedef struct sockaddr SOCKADDR;
-typedef struct in_addr IN_ADDR;
-
-#else /* sinon vous êtes sur une plateforme non supportée */
-
-#error not defined for this platform
-
-#endif
-
-static void init(void)
-{
-#ifdef WIN32
-    WSADATA wsa;
-    int err = WSAStartup(MAKEWORD(2, 2), &wsa);
-    if(err < 0)
-    {
-        puts("WSAStartup failed !");
-        exit(EXIT_FAILURE);
-    }
-#endif
-}
-
-static void end(void)
-{
-#ifdef WIN32
-    WSACleanup();
-#endif
-}
 
 #include <vector>
 #include <iostream>
@@ -125,11 +81,11 @@ int main()
 	std::cout << "[INFOS] Reseting  OTB quattrocento acquisition...\xd" << std::flush;
 	config[0] -= 1;
 	config[39] = crc(config);
-	write(sockfd,config,40);
+	send(sockfd,config,40,0);
 	std::cout << "[INFOS] Sending configuration request to OTB quattrocento ...\xd" << std::flush;
 	config[0] += 1;
 	config[39] = crc(config);
-	write(sockfd,config,40);
+	send(sockfd,config,40,0);
 	std::cout << "[INFOS] OTB quattrocento configured.                         " << std::endl;
 
     	try {
@@ -148,7 +104,7 @@ int main()
 		do {
 			int data_remaining = NB_CHANNELS*CHUNK_SIZE*2;
 			while(data_remaining > 0)
-				data_remaining -= read(sockfd,buffer+(NB_CHANNELS*CHUNK_SIZE*2-data_remaining), data_remaining);
+				data_remaining -= recv(sockfd,buffer+(NB_CHANNELS*CHUNK_SIZE*2-data_remaining), data_remaining,0);
 				
 			fill_chunk(buffer,chunk);
 			for(int i=0;i<5;i++)
@@ -171,7 +127,7 @@ int main()
 	std::cout << "[INFOS] Ending acquisition ...\xd" << std::flush;
         config[0] = ACQ_SETT | DECIM | FSAMP_2048 | NCH_IN1to8_MIN1to4 | ACQ_OFF;
         config[39] = crc(config);
-        write(sockfd,config,40);
+        send(sockfd,config,40,0);
 	closesocket(sockfd);
 	std::cout << "[INFOS] Acquisition ended.     " << std::endl;
     
