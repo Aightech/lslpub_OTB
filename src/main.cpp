@@ -1,10 +1,48 @@
-#include <stdlib.h>  
-#include <string.h> 
-#include <sys/types.h> 
-#include <netinet/in.h> 
-#include <sys/socket.h> 
-#include <unistd.h>
-#include <netdb.h>
+#ifdef WIN32 /* si vous êtes sous Windows */
+
+#include <winsock2.h> 
+
+#elif defined (linux) /* si vous êtes sous Linux */
+
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <unistd.h> /* close */
+#include <netdb.h> /* gethostbyname */
+#define INVALID_SOCKET -1
+#define SOCKET_ERROR -1
+#define closesocket(s) close(s)
+typedef int SOCKET;
+typedef struct sockaddr_in SOCKADDR_IN;
+typedef struct sockaddr SOCKADDR;
+typedef struct in_addr IN_ADDR;
+
+#else /* sinon vous êtes sur une plateforme non supportée */
+
+#error not defined for this platform
+
+#endif
+
+static void init(void)
+{
+#ifdef WIN32
+    WSADATA wsa;
+    int err = WSAStartup(MAKEWORD(2, 2), &wsa);
+    if(err < 0)
+    {
+        puts("WSAStartup failed !");
+        exit(EXIT_FAILURE);
+    }
+#endif
+}
+
+static void end(void)
+{
+#ifdef WIN32
+    WSACleanup();
+#endif
+}
 
 #include <vector>
 #include <iostream>
@@ -20,7 +58,7 @@
 
 void error(const char *msg)
 {
-	perror(msg);
+	printf("%s",msg);
 	exit(0);
 }
 
@@ -51,21 +89,23 @@ void fill_chunk(unsigned char* from, std::vector<std::vector<int16_t>>& to)
 int main()
 {
 	int portno = 23456;
-	int sockfd = socket(AF_INET, SOCK_STREAM, 0);
+	SOCKET sockfd = socket(AF_INET, SOCK_STREAM, 0);
 	if (sockfd < 0) error("[ERROR] Opening socket");
     
 	struct hostent *server = gethostbyname("169.254.1.10");
 	if (server == NULL) error("[ERROR] No such host\n");
     
-	struct sockaddr_in serv_addr;
-	bzero((char *) &serv_addr, sizeof(serv_addr));
+    
+	SOCKADDR_IN serv_addr={0};
+	//bzero((char *) &serv_addr, sizeof(serv_addr));
 	serv_addr.sin_family = AF_INET;
-	bcopy((char *)server->h_addr, (char *)&serv_addr.sin_addr.s_addr,server->h_length);
+	serv_addr.sin_addr = *(IN_ADDR*) server->h_addr;
+	//bcopy((char *)server->h_addr, (char *)&serv_addr.sin_addr.s_addr,server->h_length);
 	serv_addr.sin_port = htons(portno);
     
     
 	std::cout << "[INFOS] Connecting to OTB quattrocento ...\xd" << std::flush;
-	if (connect(sockfd,(struct sockaddr *) &serv_addr,sizeof(serv_addr)) < 0) error("ERROR connecting");
+	if (connect(sockfd,(SOCKADDR *) &serv_addr,sizeof(SOCKADDR)) < 0) error("ERROR connecting");
 	std::cout << "[INFOS] Connection to OTB quattrocento established." << std::endl;
 
 	unsigned char config[40];
@@ -132,7 +172,7 @@ int main()
         config[0] = ACQ_SETT | DECIM | FSAMP_2048 | NCH_IN1to8_MIN1to4 | ACQ_OFF;
         config[39] = crc(config);
         write(sockfd,config,40);
-	close(sockfd);
+	closesocket(sockfd);
 	std::cout << "[INFOS] Acquisition ended.     " << std::endl;
     
 	return 0;
