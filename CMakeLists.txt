@@ -19,5 +19,6 @@ if(UNIX)
 endif(UNIX)
 
 if(WIN32)
-  target_link_libraries (lslpub_OTB lsl32)
+  target_link_libraries (lslpub_OTB liblsl32)
+  target_link_libraries (lslpub_OTB wsock32 ws2_32)
 endif(WIN32)
