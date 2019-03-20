@@ -5,7 +5,6 @@
 
 #include <lsl_cpp.h>
 #include "OTBconfig.h"
-#include "conio.h"
 
 #define NB_CHANNELS 408
 #define SAMPLING_FREQUENCY 2048
@@ -100,7 +99,6 @@ int main()
 		std::cout << "+--------+-------+-------+-------+-------+" << std::endl;
 		std::vector<std::vector<int16_t>> chunk;
 		unsigned char buffer[NB_CHANNELS*CHUNK_SIZE*2];
-		bool Kpressed = true;
 		do {
 			int data_remaining = NB_CHANNELS*CHUNK_SIZE*2;
 			while(data_remaining > 0)
@@ -115,11 +113,11 @@ int main()
 			// send it
 			outlet.push_chunk(chunk);
 			
-			if (_kbhit())
-				Kpressed = (toupper((char)_getch()) != 'K');
+			//if (_kbhit())
+			//	Kpressed = (toupper((char)_getch()) != 'K');
 			
 		}
-		while (Kpressed);
+		while (1);
 
 	} catch (std::exception& e) { std::cerr << "[ERROR] Got an exception: " << e.what() << std::endl; }
 
