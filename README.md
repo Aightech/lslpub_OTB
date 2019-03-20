@@ -1,17 +1,17 @@
 # lslpub_OTB
 C++ programs that gets the data from the OTBiolab software and pub them in a LSL stream.
 
-## Architecture
-### INPUTS:
+## 1 Architecture
+### 1.1 INPUTS:
 - from OTBiolab software
-### OUTPUTS:
+### 1.2 OUTPUTS:
 - LSL stream
 
-## Installation
-### Ubuntu 18
-#### **Requirements**
+## 2 Installation
+### 2.1 Ubuntu 18
+#### 2.1.1 **Requirements**
 None.
-#### Steps
+#### 2.1.2 Steps
 Create a build directory and go inside.
 ```bash
 mkdir build && cd build
@@ -26,11 +26,11 @@ cmake --build .
 ```
 **Rq:** *The exe file is called lslpub_OTB. This file has also been copied in the bin floder of the git repository root.*
 
-### Windows 10
-##### **Requirements**
-###### Cmake
+### 2.2 Windows 10
+#### 2.2.1 **Requirements**
+- **Cmake**
 Download and install cmake: https://cmake.org/download/ (download the installer)
-#### Steps
+#### 2.2.2 Steps
 Clone the repository.
 ```bash
 git clone https://github.com/Aightech/lslpub_OTB.git
@@ -53,19 +53,19 @@ cmake --build . --config Release
 ```
 **Rq:** *The exe file is called lslpub_OTB. This file has also been copied in the bin floder of the git repository root.*
 
-#### Build LSL library on windows
+#### 2.2.3 Build LSL library on windows
 You can also follow this guide https://github.com/sccn/labstreaminglayer/blob/master/doc/BUILD.md.
-##### **Requirements**
-**Cmake**
+##### 2.2.3.1 **Requirements**
+- **Cmake**
 Download and install cmake: https://cmake.org/download/ (download the installer)
-**Qt**
+- **Qt**
 Download qt installer : https://www.qt.io/download (open source version)
-**Boost libraries**
+- **Boost libraries**
 Download boost lib: https://sourceforge.net/projects/boost/files/boost-binaries/ (last binaries version)
-**Git**
+- **Git**
 Download and install git: https://git-for-windows.github.io/
 
-##### Steps 
+##### 2.2.3.2 Steps 
 Clone the repository:
 ```bash
 git clone --recurse-submodules https://github.com/labstreaminglayer/labstreaminglayer.git
