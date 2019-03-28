@@ -1,9 +1,9 @@
 # lslpub_OTB
-C++ programs that gets the data from the OTBiolab software and pub them in a LSL stream.
+C++ programs that gets the data from the OTBiolab quattrocento device and publishes them in a LSL stream.
 
 ## 1 Architecture
 ### 1.1 INPUTS:
-- from OTBiolab software
+- from OTBiolab quattrocento ethernet packets.
 ### 1.2 OUTPUTS:
 - LSL stream
 
