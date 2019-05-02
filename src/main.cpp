@@ -17,27 +17,22 @@ void error(const char *msg)
   printf("%s",msg);
   exit(0);
 }
-
-void fill_chunk(unsigned char* from, std::vector<std::vector<int16_t>>& to)
+/**
+ * store data of array into vectors
+ **/
+template<class T>
+void fill_chunk(unsigned char* from, std::vector<std::vector<T>>& to, int n=CHUNK_SIZE)
 {
   to.clear();
-  for (unsigned i = 0; i < CHUNK_SIZE; ++i)
+  std::vector<T> d;
+  for (unsigned i = 0; i < n; ++i)
     {
-      std::vector<int16_t> d;
       to.push_back(d);
       for(unsigned j = 0; j < NB_CHANNELS; j++)
-	{
-	  to[i].push_back( (short)( (from[(i*NB_CHANNELS+j)*2]) |  (from[(i*NB_CHANNELS+j)*2+1]<<8)) );
-	  /*std::cout << (int)from[(i*NB_CHANNELS+j)*2] << std::endl;
-	    printBIN(from[(i*NB_CHANNELS+j)*2]);
-	    std::cout << (int)from[(i*NB_CHANNELS+j)*2+1] << std::endl;
-	    printBIN(from[(i*NB_CHANNELS+j)*2]);
-	    std::cout << to[i].channel[j] << std::endl;
-	    std::cout << std::endl;*/
-	}
-					
+	to[i].push_back( ((T*)from)[i*NB_CHANNELS+j] );
     }
 }
+
 
 
 void getConf(std::string path, unsigned char *config)
@@ -77,16 +72,24 @@ void getConf(std::string path, unsigned char *config)
     }
 }
 
+//get and interpret the sampling frequency bites of the config array and return th ecoresponding rate
+int get_sampling_rate(unsigned char *config)
+{
+  int rates[] = {512, 2048, 5120, 10240};
+  char index = (config[0] >> 3) & 0b11;
+  return rates[index];
+}
+
 int main(int argc, char ** argv)
 {
+  ////////////////////// OTB IP CONNECTION //////////////////////
   int portno = 23456;
   SOCKET sockfd = socket(AF_INET, SOCK_STREAM, 0);
   if (sockfd < 0) error("[ERROR] Opening socket");
     
   struct hostent *server = gethostbyname("169.254.1.10");
   if (server == NULL) error("[ERROR] No such host\n");
-    
-    
+
   SOCKADDR_IN serv_addr={0};
   //bzero((char *) &serv_addr, sizeof(serv_addr));
   serv_addr.sin_family = AF_INET;
@@ -94,16 +97,17 @@ int main(int argc, char ** argv)
   //bcopy((char *)server->h_addr, (char *)&serv_addr.sin_addr.s_addr,server->h_length);
   serv_addr.sin_port = htons(portno);
     
-    
   std::cout << "[INFOS] Connecting to OTB quattrocento ...\xd" << std::flush;
   if (connect(sockfd,(SOCKADDR *) &serv_addr,sizeof(SOCKADDR)) < 0) error("ERROR connecting");
   std::cout << "[INFOS] Connection to OTB quattrocento established." << std::endl;
+  ///////////////////////////////////////////////////////////////
+  
 
+  ////////////////////// OTB CONFIGURATION //////////////////////
   // get The OTB configuration unsigned char string
   unsigned char config[40];
   getConf((argc>1)?argv[1]:"config.cfg",config);
-
-	
+  int rate = get_sampling_rate(config);
   std::cout << "[INFOS] Reseting  OTB quattrocento acquisition...\xd" << std::flush;
   config[0] -= 1;
   config[39] = crc(config);
@@ -113,40 +117,37 @@ int main(int argc, char ** argv)
   config[39] = crc(config);
   send(sockfd,(char*)config,40,0);
   std::cout << "[INFOS] OTB quattrocento configured.                         " << std::endl;
+  ///////////////////////////////////////////////////////////////
+  
 
-  try {
-    lsl::stream_info info("OTB", "quattrocentoSamples", NB_CHANNELS, lsl::IRREGULAR_RATE,lsl::cf_int16);
-    lsl::stream_outlet outlet(info);
-
-    std::cout << "[INFOS] Now sending data... (press k to exit)" << std::endl;
-    std::cout << "+--------+-------+-------+-------+-------+" << std::endl;
-    for(int i=0;i<5;i++)
-      std::cout << "|\t" << i ;
-    std::cout << "|" << std::endl;
-    std::cout << "+--------+-------+-------+-------+-------+" << std::endl;
-    std::vector<std::vector<int16_t>> chunk;
-    unsigned char buffer[NB_CHANNELS*CHUNK_SIZE*2];
-    do {
-      int data_remaining = NB_CHANNELS*CHUNK_SIZE*2;
-      while(data_remaining > 0)
-	data_remaining -= recv(sockfd,(char*)(buffer+(NB_CHANNELS*CHUNK_SIZE*2-data_remaining)), data_remaining,0);
+  try
+    {
+      lsl::stream_info info("OTB", "quattrocentoSamples", NB_CHANNELS, rate, lsl::cf_int16);
+      lsl::stream_outlet outlet(info);
+  
+      std::vector<std::vector<int16_t>> chunk;
+      unsigned char buffer[NB_CHANNELS*CHUNK_SIZE*2];
+      std::cout << "[INFOS] Now sending data... " << std::endl;  
+      do
+	{
+	  int data_remaining = NB_CHANNELS*CHUNK_SIZE*2;
+	  while(data_remaining > 0)
+	    data_remaining -= recv(sockfd,(char*)(buffer+(NB_CHANNELS*CHUNK_SIZE*2-data_remaining)), data_remaining,0);
 				
-      fill_chunk(buffer,chunk);
-      for(int i=0;i<5;i++)
-	std::cout << "|" << chunk[0][i] << "\t " ;
-      std::cout << "|\xd" << std::flush;
-		        
+	  fill_chunk(buffer,chunk);
 
-      // send it
-      outlet.push_chunk(chunk);
-			
-      //if (_kbhit())
-      //	Kpressed = (toupper((char)_getch()) != 'K');
-			
+	  std::cout << chunk[0][0] << "      \xd" << std::flush;        
+
+	  // send it
+	  outlet.push_chunk(chunk);		
+	}
+      while (1);
+
     }
-    while (1);
-
-  } catch (std::exception& e) { std::cerr << "[ERROR] Got an exception: " << e.what() << std::endl; }
+  catch (std::exception& e)
+    {
+      std::cerr << "[ERROR] Got an exception: " << e.what() << std::endl;
+    }
 
   //ask to stop the acquisition
   std::cout << "[INFOS] Ending acquisition ...\xd" << std::flush;
