@@ -13,3 +13,5 @@
 !/OTBconfigGUI/*
 !README.md
 !CMakeLists.txt
+!/doc
+!/doc/*
