@@ -22,6 +22,9 @@ git clone https://github.com/Aightech/lslpub_OTB.git && cd lslpub_OTB
 ```bash
 mkdir build && cd build && cmake .. && cmake --build .
 ```
+#### create wired connection
+Sttings>Network> add a new wired connection
+IPv4> Manual: address: 169.254.1.0 | netmask: 255.255.255.0 | gateway: 169.254.1.0
 
 **Rq:** *The exe file is called lslpub_OTB. This file has also been copied in the bin floder of the git repository root.*
 
