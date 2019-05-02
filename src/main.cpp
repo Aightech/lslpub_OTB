@@ -7,7 +7,6 @@
 #include <lsl_cpp.h>
 #include "OTBconfig.h"
 
-#define NB_CHANNELS 408
 #define SAMPLING_FREQUENCY 2048
 #define CHUNK_SIZE 512
 
@@ -21,15 +20,15 @@ void error(const char *msg)
  * store data of array into vectors
  **/
 template<class T>
-void fill_chunk(unsigned char* from, std::vector<std::vector<T>>& to, int n=CHUNK_SIZE)
+void fill_chunk(unsigned char* from, std::vector<std::vector<T>>& to, int nb_ch, int n=CHUNK_SIZE)
 {
   to.clear();
   std::vector<T> d;
   for (unsigned i = 0; i < n; ++i)
     {
       to.push_back(d);
-      for(unsigned j = 0; j < NB_CHANNELS; j++)
-	to[i].push_back( ((T*)from)[i*NB_CHANNELS+j] );
+      for(unsigned j = 0; j < nb_ch; j++)
+	to[i].push_back( ((T*)from)[i*nb_ch+j] );
     }
 }
 
@@ -49,6 +48,7 @@ void getConf(std::string path, unsigned char *config)
 	  file.read ((char*)config, size);
 	  file.close();
 	  opened = true;
+	  std::cout << "Configuration: " << path << " opened successfully. " << std::endl;
 	}
       else
 	std::cout << "File not conformed" << std::endl;
@@ -70,6 +70,9 @@ void getConf(std::string path, unsigned char *config)
 	}
       config[39] = crc(config);
     }
+  else
+    std::cout << "Configuration: " << path << " opened successfully. " << std::endl;
+      
 }
 
 //get and interpret the sampling frequency bites of the config array and return th ecoresponding rate
@@ -79,6 +82,15 @@ int get_sampling_rate(unsigned char *config)
   char index = (config[0] >> 3) & 0b11;
   return rates[index];
 }
+
+//get and interpret the sampling frequency bites of the config array and return th ecoresponding rate
+int get_nbChannels(unsigned char *config)
+{
+  char index = (config[0] >> 1) & 0b11;
+  return (index+1)*2*16 + (index+1)*64 + 16 + 8;
+}
+
+
 
 int main(int argc, char ** argv)
 {
@@ -108,6 +120,7 @@ int main(int argc, char ** argv)
   unsigned char config[40];
   getConf((argc>1)?argv[1]:"config.cfg",config);
   int rate = get_sampling_rate(config);
+  int nb_ch = get_nbChannels(config);
   std::cout << "[INFOS] Reseting  OTB quattrocento acquisition...\xd" << std::flush;
   config[0] -= 1;
   config[39] = crc(config);
@@ -122,21 +135,21 @@ int main(int argc, char ** argv)
 
   try
     {
-      lsl::stream_info info("OTB", "quattrocentoSamples", NB_CHANNELS, rate, lsl::cf_int16);
+      lsl::stream_info info("OTB", "quattrocentoSamples", nb_ch, rate, lsl::cf_int16);
       lsl::stream_outlet outlet(info);
   
       std::vector<std::vector<int16_t>> chunk;
-      unsigned char buffer[NB_CHANNELS*CHUNK_SIZE*2];
+      unsigned char buffer[nb_ch*CHUNK_SIZE*2];
       std::cout << "[INFOS] Now sending data... " << std::endl;  
       do
 	{
-	  int data_remaining = NB_CHANNELS*CHUNK_SIZE*2;
+	  int data_remaining = nb_ch*CHUNK_SIZE*2;
 	  while(data_remaining > 0)
-	    data_remaining -= recv(sockfd,(char*)(buffer+(NB_CHANNELS*CHUNK_SIZE*2-data_remaining)), data_remaining,0);
+	    data_remaining -= recv(sockfd,(char*)(buffer+(nb_ch*CHUNK_SIZE*2-data_remaining)), data_remaining,0);
 				
-	  fill_chunk(buffer,chunk);
+	  fill_chunk(buffer, chunk, nb_ch);
 
-	  std::cout << chunk[0][0] << "      \xd" << std::flush;        
+	  std::cout << "Sample counter: " << (unsigned short) chunk[0][nb_ch-8] << "  Buffer usage: " <<  (unsigned short)chunk[0][nb_ch-5] << "   \xd" << std::flush;        
 
 	  // send it
 	  outlet.push_chunk(chunk);		
