@@ -27,8 +27,11 @@ void usage(std::vector<std::string>& optf,  std::vector<std::string>& optl, std:
 void get_arg(int argc, char ** argv, std::vector<std::string>& optf,  std::vector<std::string>& optl, std::vector<std::string>& optv)
 {
   int i =1;
+  std::string help_flag = "-h";
   while(i < argc)
     {
+      if(help_flag.compare(argv[i])==0)
+	usage(optf,optl,optv);
       int j = 0;
       while(optf[j].compare(argv[i]) != 0)
 	{
@@ -129,7 +132,7 @@ int main(int argc, char ** argv)
 					"-c",
 					"-s"});
   std::vector<std::string> opt_label(
-				     {"lsl output stream's name",
+				     {"Lsl output stream's name",
 					 "OTB congiguration file",
 					 "TCP chunks's size"  });
   std::vector<std::string> opt_value(
@@ -167,7 +170,7 @@ int main(int argc, char ** argv)
   ////////////////////// OTB CONFIGURATION //////////////////////
   // get The OTB configuration unsigned char string
   unsigned char config[40];
-  getConf((argc>1)?argv[1]:"config.cfg",config);
+  getConf(config_file, config);
   int rate = get_sampling_rate(config);
   int nb_ch = get_nbChannels(config);
   std::cout << "[INFOS] Reseting  OTB quattrocento acquisition...\xd" << std::flush;
