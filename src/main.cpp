@@ -1,5 +1,3 @@
-
-
 #include <vector>
 #include <fstream>
 #include <iostream>
@@ -8,14 +6,46 @@
 #include "OTBconfig.h"
 
 #define SAMPLING_FREQUENCY 2048
-#define CHUNK_SIZE 512
+#define CHUNK_SIZE 1
 
 
 void error(const char *msg)
 {
-  printf("%s",msg);
+  printf("%s\n",msg);
   exit(0);
 }
+
+void usage(std::vector<std::string>& optf,  std::vector<std::string>& optl, std::vector<std::string>& optv)
+{
+  std::cout << "Usage: ./lslpub_OTB [OPTION ...]" << std::endl;
+  std::cout << "Options: " << std::endl;
+  for(int i = 0; i< optf.size(); i++)
+    std::cout << "         " << optf[i] << "\t" << optl[i] <<" (ex: " << optv[i] << " )"<< std::endl;
+  exit(0);
+}
+
+void get_arg(int argc, char ** argv, std::vector<std::string>& optf,  std::vector<std::string>& optl, std::vector<std::string>& optv)
+{
+  int i =1;
+  while(i < argc)
+    {
+      int j = 0;
+      while(optf[j].compare(argv[i]) != 0)
+	{
+	  j++;
+	  if(j>= optf.size())
+	    usage(optf,optl,optv);
+	}
+      if(i+1 >= argc || argv[i+1][0] == '-')
+	usage(optf,optl,optv);
+      optv[j] = argv[i+1];
+      i+=2; 
+    }
+  for(int i = 0; i< optl.size(); i++)
+    std::cout << optl[i] <<" : " << optv[i] << std::endl;
+}
+  
+
 /**
  * store data of array into vectors
  **/
@@ -94,6 +124,25 @@ int get_nbChannels(unsigned char *config)
 
 int main(int argc, char ** argv)
 {
+  std::vector<std::string> opt_flag(
+				    {"-n",
+					"-c",
+					"-s"});
+  std::vector<std::string> opt_label(
+				     {"lsl output stream's name",
+					 "OTB congiguration file",
+					 "TCP chunks's size"  });
+  std::vector<std::string> opt_value(
+				     {"OTB",
+					 "none",
+					 "1"});
+  get_arg(argc, argv, opt_flag, opt_label, opt_value);
+  
+  std::string stream_name = opt_value[0];
+  std::string config_file = opt_value[1];
+  int chunk_size = std::stoi(opt_value[2]);
+
+
   ////////////////////// OTB IP CONNECTION //////////////////////
   int portno = 23456;
   SOCKET sockfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -135,21 +184,21 @@ int main(int argc, char ** argv)
 
   try
     {
-      lsl::stream_info info("OTB", "quattrocentoSamples", nb_ch, rate, lsl::cf_int16);
+      lsl::stream_info info(stream_name, "quattrocentoSamples", nb_ch, rate, lsl::cf_int16);
       lsl::stream_outlet outlet(info);
   
       std::vector<std::vector<int16_t>> chunk;
-      unsigned char buffer[nb_ch*CHUNK_SIZE*2];
+      unsigned char buffer[nb_ch*chunk_size*2];
       std::cout << "[INFOS] Now sending data... " << std::endl;  
       do
 	{
-	  int data_remaining = nb_ch*CHUNK_SIZE*2;
+	  int data_remaining = nb_ch*chunk_size*2;
 	  while(data_remaining > 0)
-	    data_remaining -= recv(sockfd,(char*)(buffer+(nb_ch*CHUNK_SIZE*2-data_remaining)), data_remaining,0);
+	    data_remaining -= recv(sockfd,(char*)(buffer+(nb_ch*chunk_size*2-data_remaining)), data_remaining,0);
 				
 	  fill_chunk(buffer, chunk, nb_ch);
 
-	  std::cout << "Sample counter: " << (unsigned short) chunk[0][nb_ch-8] << "  Buffer usage: " <<  (unsigned short)chunk[0][nb_ch-5] << "   \xd" << std::flush;        
+	  std::cout << "Sample counter (ch: " << nb_ch-8 << ") : " << (unsigned short) chunk[0][nb_ch-8] << "  Buffer usage: " <<  (unsigned short)chunk[0][nb_ch-5] << "   \xd" << std::flush;        
 
 	  // send it
 	  outlet.push_chunk(chunk);		
