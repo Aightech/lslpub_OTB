@@ -1,0 +1,124 @@
+.TH "src/main.cpp" 3 "Fri May 10 2019" "lslpub_OTB" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/main.cpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <vector>\fP
+.br
+\fC#include <fstream>\fP
+.br
+\fC#include <iostream>\fP
+.br
+\fC#include <lsl_cpp\&.h>\fP
+.br
+\fC#include 'OTBconfig\&.h'\fP
+.br
+\fC#include 'tools\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSAMPLING_FREQUENCY\fP   2048"
+.br
+.ti -1c
+.RI "#define \fBCHUNK_SIZE\fP   1"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<class T > void \fBfill_chunk\fP (unsigned char *from, std::vector< std::vector< T >> &to, int nb_ch, int n=\fBCHUNK_SIZE\fP)"
+.br
+.RI "fill_chunk transform a unsigned char array into a typed vector of vector\&. "
+.ti -1c
+.RI "void \fBgetConf\fP (std::string path, unsigned char *config)"
+.br
+.RI "fill_chunk transform a unsigned char array into a typed vector of vector\&. "
+.ti -1c
+.RI "int \fBget_sampling_rate\fP (unsigned char *config)"
+.br
+.RI "get_sampling_rate Get and interpret the sampling frequency bites of the config array and return the coresponding rate\&. "
+.ti -1c
+.RI "int \fBget_nbChannels\fP (unsigned char *config)"
+.br
+.RI "get_sampling_rate Get and interpret the number of channels bites of the config array and return the coresponding rate "
+.ti -1c
+.RI "int \fBmain\fP (int argc, char **argv)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define CHUNK_SIZE   1"
+
+.SS "#define SAMPLING_FREQUENCY   2048"
+
+.SH "Function Documentation"
+.PP 
+.SS "template<class T > void fill_chunk (unsigned char * from, std::vector< std::vector< T >> & to, int nb_ch, int n = \fC\fBCHUNK_SIZE\fP\fP)"
+
+.PP
+fill_chunk transform a unsigned char array into a typed vector of vector\&. 
+.PP
+\fBTemplate Parameters:\fP
+.RS 4
+\fIT\fP Type of the vector\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfrom\fP Unsigned char array to transform\&. 
+.br
+\fIto\fP Resulting vector of vector of type T\&. 
+.br
+\fInb_ch\fP Number of channel of the stream\&. 
+.br
+\fIn\fP Number of sample in the array\&. 
+.RE
+.PP
+
+.SS "int get_nbChannels (unsigned char * config)"
+
+.PP
+get_sampling_rate Get and interpret the number of channels bites of the config array and return the coresponding rate 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIconfig\fP The configuration array used in the program\&. 
+.RE
+.PP
+
+.SS "int get_sampling_rate (unsigned char * config)"
+
+.PP
+get_sampling_rate Get and interpret the sampling frequency bites of the config array and return the coresponding rate\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIconfig\fP The configuration array used in the program\&. 
+.RE
+.PP
+
+.SS "void getConf (std::string path, unsigned char * config)"
+
+.PP
+fill_chunk transform a unsigned char array into a typed vector of vector\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpath\fP Path of the configuration file\&.\&. 
+.br
+\fIconfig\fP The configuration array used in the program\&. 
+.RE
+.PP
+
+.SS "int main (int argc, char ** argv)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for lslpub_OTB from the source code\&.

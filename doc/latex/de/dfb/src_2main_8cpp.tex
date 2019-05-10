@@ -1,0 +1,134 @@
+\hypertarget{src_2main_8cpp}{}\section{src/main.cpp File Reference}
+\label{src_2main_8cpp}\index{src/main.\+cpp@{src/main.\+cpp}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$lsl\+\_\+cpp.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}O\+T\+Bconfig.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tools.\+h\char`\"{}}\newline
+Include dependency graph for main.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/dfa/src_2main_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{src_2main_8cpp_a282b5ca7d691d6a8ca66c15a0fc0707b}{S\+A\+M\+P\+L\+I\+N\+G\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY}~2048
+\item 
+\#define \hyperlink{src_2main_8cpp_aea3cfda4f3a9f978ec759f206cf186fe}{C\+H\+U\+N\+K\+\_\+\+S\+I\+ZE}~1
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T $>$ }\\void \hyperlink{src_2main_8cpp_ab63fc66f6d459b5934771a5236ba062a}{fill\+\_\+chunk} (unsigned char $\ast$from, std\+::vector$<$ std\+::vector$<$ T $>$$>$ \&to, int nb\+\_\+ch, int n=\hyperlink{src_2main_8cpp_aea3cfda4f3a9f978ec759f206cf186fe}{C\+H\+U\+N\+K\+\_\+\+S\+I\+ZE})
+\begin{DoxyCompactList}\small\item\em fill\+\_\+chunk transform a unsigned char array into a typed vector of vector. \end{DoxyCompactList}\item 
+void \hyperlink{src_2main_8cpp_ac69b13801e31a93d47c62194924d0af8}{get\+Conf} (std\+::string path, unsigned char $\ast$config)
+\begin{DoxyCompactList}\small\item\em fill\+\_\+chunk transform a unsigned char array into a typed vector of vector. \end{DoxyCompactList}\item 
+int \hyperlink{src_2main_8cpp_ab0977b25f5ebf5c2fe484d875330b745}{get\+\_\+sampling\+\_\+rate} (unsigned char $\ast$config)
+\begin{DoxyCompactList}\small\item\em get\+\_\+sampling\+\_\+rate Get and interpret the sampling frequency bites of the config array and return the coresponding rate. \end{DoxyCompactList}\item 
+int \hyperlink{src_2main_8cpp_aa3eb305d2f10786be43b75e75bc19f95}{get\+\_\+nb\+Channels} (unsigned char $\ast$config)
+\begin{DoxyCompactList}\small\item\em get\+\_\+sampling\+\_\+rate Get and interpret the number of channels bites of the config array and return the coresponding rate \end{DoxyCompactList}\item 
+int \hyperlink{src_2main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{src_2main_8cpp_aea3cfda4f3a9f978ec759f206cf186fe}\label{src_2main_8cpp_aea3cfda4f3a9f978ec759f206cf186fe}} 
+\index{src/main.\+cpp@{src/main.\+cpp}!C\+H\+U\+N\+K\+\_\+\+S\+I\+ZE@{C\+H\+U\+N\+K\+\_\+\+S\+I\+ZE}}
+\index{C\+H\+U\+N\+K\+\_\+\+S\+I\+ZE@{C\+H\+U\+N\+K\+\_\+\+S\+I\+ZE}!src/main.\+cpp@{src/main.\+cpp}}
+\subsubsection{\texorpdfstring{C\+H\+U\+N\+K\+\_\+\+S\+I\+ZE}{CHUNK\_SIZE}}
+{\footnotesize\ttfamily \#define C\+H\+U\+N\+K\+\_\+\+S\+I\+ZE~1}
+
+\mbox{\Hypertarget{src_2main_8cpp_a282b5ca7d691d6a8ca66c15a0fc0707b}\label{src_2main_8cpp_a282b5ca7d691d6a8ca66c15a0fc0707b}} 
+\index{src/main.\+cpp@{src/main.\+cpp}!S\+A\+M\+P\+L\+I\+N\+G\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY@{S\+A\+M\+P\+L\+I\+N\+G\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY}}
+\index{S\+A\+M\+P\+L\+I\+N\+G\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY@{S\+A\+M\+P\+L\+I\+N\+G\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY}!src/main.\+cpp@{src/main.\+cpp}}
+\subsubsection{\texorpdfstring{S\+A\+M\+P\+L\+I\+N\+G\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY}{SAMPLING\_FREQUENCY}}
+{\footnotesize\ttfamily \#define S\+A\+M\+P\+L\+I\+N\+G\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY~2048}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{src_2main_8cpp_ab63fc66f6d459b5934771a5236ba062a}\label{src_2main_8cpp_ab63fc66f6d459b5934771a5236ba062a}} 
+\index{src/main.\+cpp@{src/main.\+cpp}!fill\+\_\+chunk@{fill\+\_\+chunk}}
+\index{fill\+\_\+chunk@{fill\+\_\+chunk}!src/main.\+cpp@{src/main.\+cpp}}
+\subsubsection{\texorpdfstring{fill\+\_\+chunk()}{fill\_chunk()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void fill\+\_\+chunk (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{from,  }\item[{std\+::vector$<$ std\+::vector$<$ T $>$$>$ \&}]{to,  }\item[{int}]{nb\+\_\+ch,  }\item[{int}]{n = {\ttfamily \hyperlink{src_2main_8cpp_aea3cfda4f3a9f978ec759f206cf186fe}{C\+H\+U\+N\+K\+\_\+\+S\+I\+ZE}} }\end{DoxyParamCaption})}
+
+
+
+fill\+\_\+chunk transform a unsigned char array into a typed vector of vector. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of the vector. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em from} & Unsigned char array to transform. \\
+\hline
+{\em to} & Resulting vector of vector of type T. \\
+\hline
+{\em nb\+\_\+ch} & Number of channel of the stream. \\
+\hline
+{\em n} & Number of sample in the array. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{src_2main_8cpp_aa3eb305d2f10786be43b75e75bc19f95}\label{src_2main_8cpp_aa3eb305d2f10786be43b75e75bc19f95}} 
+\index{src/main.\+cpp@{src/main.\+cpp}!get\+\_\+nb\+Channels@{get\+\_\+nb\+Channels}}
+\index{get\+\_\+nb\+Channels@{get\+\_\+nb\+Channels}!src/main.\+cpp@{src/main.\+cpp}}
+\subsubsection{\texorpdfstring{get\+\_\+nb\+Channels()}{get\_nbChannels()}}
+{\footnotesize\ttfamily int get\+\_\+nb\+Channels (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{config }\end{DoxyParamCaption})}
+
+
+
+get\+\_\+sampling\+\_\+rate Get and interpret the number of channels bites of the config array and return the coresponding rate 
+
+
+\begin{DoxyParams}{Parameters}
+{\em config} & The configuration array used in the program. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{src_2main_8cpp_ab0977b25f5ebf5c2fe484d875330b745}\label{src_2main_8cpp_ab0977b25f5ebf5c2fe484d875330b745}} 
+\index{src/main.\+cpp@{src/main.\+cpp}!get\+\_\+sampling\+\_\+rate@{get\+\_\+sampling\+\_\+rate}}
+\index{get\+\_\+sampling\+\_\+rate@{get\+\_\+sampling\+\_\+rate}!src/main.\+cpp@{src/main.\+cpp}}
+\subsubsection{\texorpdfstring{get\+\_\+sampling\+\_\+rate()}{get\_sampling\_rate()}}
+{\footnotesize\ttfamily int get\+\_\+sampling\+\_\+rate (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{config }\end{DoxyParamCaption})}
+
+
+
+get\+\_\+sampling\+\_\+rate Get and interpret the sampling frequency bites of the config array and return the coresponding rate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em config} & The configuration array used in the program. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{src_2main_8cpp_ac69b13801e31a93d47c62194924d0af8}\label{src_2main_8cpp_ac69b13801e31a93d47c62194924d0af8}} 
+\index{src/main.\+cpp@{src/main.\+cpp}!get\+Conf@{get\+Conf}}
+\index{get\+Conf@{get\+Conf}!src/main.\+cpp@{src/main.\+cpp}}
+\subsubsection{\texorpdfstring{get\+Conf()}{getConf()}}
+{\footnotesize\ttfamily void get\+Conf (\begin{DoxyParamCaption}\item[{std\+::string}]{path,  }\item[{unsigned char $\ast$}]{config }\end{DoxyParamCaption})}
+
+
+
+fill\+\_\+chunk transform a unsigned char array into a typed vector of vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Path of the configuration file.. \\
+\hline
+{\em config} & The configuration array used in the program. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{src_2main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{src_2main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{src/main.\+cpp@{src/main.\+cpp}!main@{main}}
+\index{main@{main}!src/main.\+cpp@{src/main.\+cpp}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+

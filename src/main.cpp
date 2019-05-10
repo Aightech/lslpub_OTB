@@ -4,54 +4,19 @@
 
 #include <lsl_cpp.h>
 #include "OTBconfig.h"
-
+#include "tools.h"
 #define SAMPLING_FREQUENCY 2048
 #define CHUNK_SIZE 1
 
 
-void error(const char *msg)
-{
-  printf("%s\n",msg);
-  exit(0);
-}
-
-void usage(std::vector<std::string>& optf,  std::vector<std::string>& optl, std::vector<std::string>& optv)
-{
-  std::cout << "Usage: ./lslpub_OTB [OPTION ...]" << std::endl;
-  std::cout << "Options: " << std::endl;
-  for(int i = 0; i< optf.size(); i++)
-    std::cout << "         " << optf[i] << "\t" << optl[i] <<" (ex: " << optv[i] << " )"<< std::endl;
-  exit(0);
-}
-
-void get_arg(int argc, char ** argv, std::vector<std::string>& optf,  std::vector<std::string>& optl, std::vector<std::string>& optv)
-{
-  int i =1;
-  std::string help_flag = "-h";
-  while(i < argc)
-    {
-      if(help_flag.compare(argv[i])==0)
-	usage(optf,optl,optv);
-      int j = 0;
-      while(optf[j].compare(argv[i]) != 0)
-	{
-	  j++;
-	  if(j>= optf.size())
-	    usage(optf,optl,optv);
-	}
-      if(i+1 >= argc || argv[i+1][0] == '-')
-	usage(optf,optl,optv);
-      optv[j] = argv[i+1];
-      i+=2; 
-    }
-  for(int i = 0; i< optl.size(); i++)
-    std::cout << optl[i] <<" : " << optv[i] << std::endl;
-}
-  
-
 /**
- * store data of array into vectors
- **/
+ * @brief fill_chunk transform a unsigned char array into a typed vector of vector.
+ * @tparam T Type of the vector.
+ * @param from Unsigned char array to transform.
+ * @param to Resulting vector of vector of type T.
+ * @param nb_ch Number of channel of the stream.
+ * @param n Number of sample in the array.
+ */
 template<class T>
 void fill_chunk(unsigned char* from, std::vector<std::vector<T>>& to, int nb_ch, int n=CHUNK_SIZE)
 {
@@ -66,7 +31,11 @@ void fill_chunk(unsigned char* from, std::vector<std::vector<T>>& to, int nb_ch,
 }
 
 
-
+/**
+ * @brief fill_chunk transform a unsigned char array into a typed vector of vector.
+ * @param path Path of the configuration file..
+ * @param config The configuration array used in the program.
+ */
 void getConf(std::string path, unsigned char *config)
 {
   bool opened = false;
@@ -108,7 +77,10 @@ void getConf(std::string path, unsigned char *config)
       
 }
 
-//get and interpret the sampling frequency bites of the config array and return th ecoresponding rate
+/**
+ * @brief get_sampling_rate Get and interpret the sampling frequency bites of the config array and return the coresponding rate.
+ * @param config The configuration array used in the program.
+ */
 int get_sampling_rate(unsigned char *config)
 {
   int rates[] = {512, 2048, 5120, 10240};
@@ -116,7 +88,11 @@ int get_sampling_rate(unsigned char *config)
   return rates[index];
 }
 
-//get and interpret the sampling frequency bites of the config array and return th ecoresponding rate
+/**
+ * @brief get_sampling_rate Get and interpret the number of channels bites of the config array and return the coresponding rate
+ * @param config The configuration array used in the program.
+ */
+
 int get_nbChannels(unsigned char *config)
 {
   char index = (config[0] >> 1) & 0b11;
