@@ -1,0 +1,108 @@
+C++ programs that gets the data from the O\+T\+Biolab quattrocento device and publishes them in a L\+SL stream.
+
+\subsection*{1 Architecture}
+
+\subsubsection*{1.\+1 I\+N\+P\+U\+TS\+:}
+
+
+\begin{DoxyItemize}
+\item from O\+T\+Biolab quattrocento ethernet packets. \subsubsection*{1.\+2 O\+U\+T\+P\+U\+TS\+:}
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item L\+SL stream
+\end{DoxyItemize}
+
+\subsection*{2 Installation}
+
+\subsubsection*{2.\+1 Ubuntu 18}
+
+\paragraph*{2.\+1.\+1 {\bfseries Requirements}}
+
+None. \paragraph*{2.\+1.\+2 Steps}
+
+
+\begin{DoxyItemize}
+\item Clone the repository and go inside. 
+\begin{DoxyCode}
+git clone https://github.com/Aightech/lslpub\_OTB.git && cd lslpub\_OTB
+\end{DoxyCode}
+
+\item Create a build directory and go inside.
+\item Configure the project.
+\item Build the project. 
+\begin{DoxyCode}
+mkdir build && cd build && cmake .. && cmake --build .
+\end{DoxyCode}
+ \paragraph*{create wired connection}
+\end{DoxyItemize}
+
+Sttings$>$Network$>$ add a new wired connection I\+Pv4$>$ Manual\+: address\+: 169.\+254.\+1.\+0 $\vert$ netmask\+: 255.\+255.\+255.\+0 $\vert$ gateway\+: 169.\+254.\+1.\+0
+
+{\bfseries Rq\+:} {\itshape The exe file is called lslpub\+\_\+\+O\+TB. This file has also been copied in the bin floder of the git repository root.}
+
+\subsubsection*{2.\+2 Windows 10}
+
+\paragraph*{2.\+2.\+1 {\bfseries Requirements}}
+
+
+\begin{DoxyItemize}
+\item \href{https://cmake.org/download/}{\tt C\+Make} (download and execute the installer for windows , add to the P\+A\+TH variable)
+\item \href{https://sourceforge.net/projects/mingw-w64/}{\tt Min\+G\+W32} (download and execute the installer for windows, chose i686\+\_\+64 architecture, add the the bin folder address of min\+GW to the P\+A\+TH environement variable).
+\item \href{https://git-for-windows.github.io/}{\tt {\bfseries Git}} Download and install git. \paragraph*{Steps}
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item Clone the repository and go inside. 
+\begin{DoxyCode}
+git clone https://github.com/Aightech/lslpub\_OTB.git && cd lslpub\_OTB
+\end{DoxyCode}
+
+\item Create a build directory.
+\item Configure and generate the C\+Make project.
+\item Build the project. 
+\begin{DoxyCode}
+mkdir build && cd build && cmake .. -G "MinGW Makefiles" && mingw32-make
+\end{DoxyCode}
+ {\bfseries Rq\+:} {\itshape The exe file is called lslpub\+\_\+\+O\+TB. This file has also been copied in the bin floder of the git repository root.}
+\end{DoxyItemize}
+
+\paragraph*{2.\+2.\+3 Build L\+SL library on windows}
+
+You can also follow this guide \href{https://github.com/sccn/labstreaminglayer/blob/master/doc/BUILD.md}{\tt https\+://github.\+com/sccn/labstreaminglayer/blob/master/doc/\+B\+U\+I\+L\+D.\+md}. \subparagraph*{2.\+2.\+3.\+1 {\bfseries Requirements}}
+
+
+\begin{DoxyItemize}
+\item \href{https://cmake.org/download/}{\tt {\bfseries Cmake}} Download and install cmake.
+\item \href{https://www.qt.io/download}{\tt {\bfseries Qt}} Download qt installer (open source version).
+\item \href{https://sourceforge.net/projects/boost/files/boost-binaries/}{\tt {\bfseries Boost libraries}} Download boost lib (last binaries version).
+\item \href{https://git-for-windows.github.io/}{\tt {\bfseries Git}} Download and install git.
+\item \href{https://sourceforge.net/projects/mingw-w64/}{\tt {\bfseries Min\+G\+W32}} (download and execute the installer for windows, chose i686\+\_\+64 architecture, add the the bin folder address of min\+GW to the P\+A\+TH environement variable)
+\end{DoxyItemize}
+
+\subparagraph*{2.\+2.\+3.\+2 Steps}
+
+
+\begin{DoxyItemize}
+\item Clone the repository and go inside. 
+\begin{DoxyCode}
+git clone --recurse-submodules https://github.com/labstreaminglayer/labstreaminglayer.git &&cd
+       labstreaminglayer
+\end{DoxyCode}
+
+\item Create a build repository and go inside. 
+\begin{DoxyCode}
+mkdir build && cd build
+\end{DoxyCode}
+ Configure and generate the project with the G\+UI. 
+\begin{DoxyCode}
+cmake-gui
+\end{DoxyCode}
+ Click on \char`\"{}configure\char`\"{}. Select the Min\+GW Make\+File. Check if the boost libraries and Qt are correct. Then click on \char`\"{}generate\char`\"{}. In the command prompt, build the project. 
+\begin{DoxyCode}
+cmake --build . --config Release --target install
+\end{DoxyCode}
+ 
+\end{DoxyItemize}
