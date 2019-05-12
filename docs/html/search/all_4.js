@@ -1,12 +1,11 @@
 var searchData=
 [
-  ['data',['data',['../dd/dfe/structqt__meta__stringdata___main_window__t.html#a70e55b3cae36e81c3bf1093c26a52b51',1,'qt_meta_stringdata_MainWindow_t']]],
-  ['dec',['DEC',['../d1/d3a/_c_make_c_compiler_id_8c.html#ad1280362da42492bbc11aa78cbf776ad',1,'DEC():&#160;CMakeCCompilerId.c'],['../d3/d66/_c_make_c_x_x_compiler_id_8cpp.html#ad1280362da42492bbc11aa78cbf776ad',1,'DEC():&#160;CMakeCXXCompilerId.cpp']]],
-  ['decim',['DECIM',['../d8/de3/_o_t_bconfig_8h.html#a76df0c2a7422b57efb6bdafad46eccad',1,'DECIM():&#160;OTBconfig.h'],['../d9/d53/mainwindow_8h.html#a76df0c2a7422b57efb6bdafad46eccad',1,'DECIM():&#160;mainwindow.h']]],
-  ['deduced_5ftimestamp',['DEDUCED_TIMESTAMP',['../d3/db0/namespacelsl.html#a57df17d8a2563a18b8b759a0cec696cc',1,'lsl']]],
-  ['desc',['desc',['../d1/d6a/classlsl_1_1stream__info.html#a7bbc53bb041757eb87c6c73564981390',1,'lsl::stream_info']]],
-  ['detection_5fmode_5fbipolar',['DETECTION_MODE_BIPOLAR',['../d8/de3/_o_t_bconfig_8h.html#a4c9dee6a6de692f2896c5fc0d4e247a4',1,'OTBconfig.h']]],
-  ['detection_5fmode_5fdifferencial',['DETECTION_MODE_DIFFERENCIAL',['../d8/de3/_o_t_bconfig_8h.html#a13d0cb34c330e7b5810e9076f3ee1b72',1,'OTBconfig.h']]],
-  ['detection_5fmode_5fmonopolar',['DETECTION_MODE_MONOPOLAR',['../d8/de3/_o_t_bconfig_8h.html#a131e3f6a86f4c81571ec3ecefe27d877',1,'OTBconfig.h']]],
-  ['dorsal_5finterossei',['Dorsal_Interossei',['../d8/de3/_o_t_bconfig_8h.html#aa1acc05a927e6c8e90cb1089333cfe4e',1,'OTBconfig.h']]]
+  ['empty',['empty',['../d9/d90/classlsl_1_1xml__element.html#a787dcaf85abcc5cd4d5f93fc80c82eb5',1,'lsl::xml_element']]],
+  ['erector_5fspinae',['Erector_Spinae',['../d8/de3/_o_t_bconfig_8h.html#a6548c4b0e532305624ae24a7cedf609b',1,'OTBconfig.h']]],
+  ['error',['error',['../d5/da5/tools_8h.html#a61c5db3de2e3870f15756d0ad8440990',1,'error(std::string str):&#160;tools.cpp'],['../d3/d62/tools_8cpp.html#a61c5db3de2e3870f15756d0ad8440990',1,'error(std::string str):&#160;tools.cpp']]],
+  ['ext_5fabdom_5fobliq',['Ext_Abdom_Obliq',['../d8/de3/_o_t_bconfig_8h.html#ac1106350376d682866bc1c99a0850ca5',1,'OTBconfig.h']]],
+  ['ext_5fanal_5fsphincter',['Ext_Anal_Sphincter',['../d8/de3/_o_t_bconfig_8h.html#aab47559416794b1c738644d08c986fb2',1,'OTBconfig.h']]],
+  ['ext_5fcarpi_5fradialis',['Ext_Carpi_Radialis',['../d8/de3/_o_t_bconfig_8h.html#ac9c9b205e2dd7dbc2854c32575b82aa4',1,'OTBconfig.h']]],
+  ['ext_5fcarpi_5fulnaris',['Ext_Carpi_Ulnaris',['../d8/de3/_o_t_bconfig_8h.html#a591ecfbfc60cca732e246de2b8e1e98b',1,'OTBconfig.h']]],
+  ['ext_5fdig_5fcommunis',['Ext_Dig_Communis',['../d8/de3/_o_t_bconfig_8h.html#a8f841d809960ce14fa17258f6c035556',1,'OTBconfig.h']]]
 ];

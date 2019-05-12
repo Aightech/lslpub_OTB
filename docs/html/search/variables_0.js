@@ -1,19 +1,4 @@
 var searchData=
 [
-  ['centralwidget',['centralWidget',['../df/dd7/class_ui___main_window.html#a30075506c2116c3ed4ff25e07ae75f81',1,'Ui_MainWindow']]],
-  ['checkbox_5fdecim',['checkBox_DECIM',['../df/dd7/class_ui___main_window.html#a6577339cac5354cd92212d8182b9b47d',1,'Ui_MainWindow']]],
-  ['checkbox_5frec_5fon',['checkBox_REC_ON',['../df/dd7/class_ui___main_window.html#a5a712f0294a7c1137b91e546a67d9cb7',1,'Ui_MainWindow']]],
-  ['combobox_5fadapt',['comboBox_ADAPT',['../df/dd7/class_ui___main_window.html#a21522c20bae36c7f4ba4cb2354a8b17d',1,'Ui_MainWindow']]],
-  ['combobox_5fanout_5fgain',['comboBox_ANOUT_GAIN',['../df/dd7/class_ui___main_window.html#a11ba7790a2147e039fd80cd3330a93f6',1,'Ui_MainWindow']]],
-  ['combobox_5fchsel',['comboBox_CHSEL',['../df/dd7/class_ui___main_window.html#a967a6487fae379c728b22caf95f5e83f',1,'Ui_MainWindow']]],
-  ['combobox_5ffsamp',['comboBox_FSAMP',['../df/dd7/class_ui___main_window.html#aaf7751422702d5df5584a71119ceabbb',1,'Ui_MainWindow']]],
-  ['combobox_5fhpf',['comboBox_HPF',['../df/dd7/class_ui___main_window.html#aaa3d8dbf2ffc2b6ea072f7ef88d1e5a0',1,'Ui_MainWindow']]],
-  ['combobox_5finsel',['comboBox_INSEL',['../df/dd7/class_ui___main_window.html#ae8d1b45c0cfcd6b434a75a17c9037a1c',1,'Ui_MainWindow']]],
-  ['combobox_5flpf',['comboBox_LPF',['../df/dd7/class_ui___main_window.html#a9e0aafa995e96d5c4dceba7788e29358',1,'Ui_MainWindow']]],
-  ['combobox_5fmode',['comboBox_MODE',['../df/dd7/class_ui___main_window.html#a16c04ddf40af3d97418246cfb04d9f82',1,'Ui_MainWindow']]],
-  ['combobox_5fmus',['comboBox_MUS',['../df/dd7/class_ui___main_window.html#a6e4c09cd05089b1bd6081c4431be98e9',1,'Ui_MainWindow']]],
-  ['combobox_5fnch',['comboBox_NCH',['../df/dd7/class_ui___main_window.html#a60e6e7aea7048e8119b9cb05c2192070',1,'Ui_MainWindow']]],
-  ['combobox_5fselectedin',['comboBox_selectedIN',['../df/dd7/class_ui___main_window.html#a25922bf1e0c13b9aac0498e48bdbbc2e',1,'Ui_MainWindow']]],
-  ['combobox_5fsens',['comboBox_SENS',['../df/dd7/class_ui___main_window.html#aeb8291dc37be1a33337d1e403d07ed37',1,'Ui_MainWindow']]],
-  ['combobox_5fside',['comboBox_SIDE',['../df/dd7/class_ui___main_window.html#a35b1e7da83de7512c86d48f2d9f15b05',1,'Ui_MainWindow']]]
+  ['deduced_5ftimestamp',['DEDUCED_TIMESTAMP',['../d3/db0/namespacelsl.html#a57df17d8a2563a18b8b759a0cec696cc',1,'lsl']]]
 ];
