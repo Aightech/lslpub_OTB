@@ -1,6 +1,5 @@
 # lslpub_OTB
-
-[https://aightech.github.io/lslpub_OTB/html/index.html](Documentation)
+[Documentation](https://aightech.github.io/lslpub_OTB/html/d3/dcc/md__r_e_a_d_m_e.html)
 
 ## 1 Presentation
 C++ programs that gets the data from the OTBiolab quattrocento device and publishes them in a LSL stream.
