@@ -1,13 +1,9 @@
 # lslpub_OTB
+
 [https://aightech.github.io/lslpub_OTB/html/index.html](Documentation)
 
+## 1 Presentation
 C++ programs that gets the data from the OTBiolab quattrocento device and publishes them in a LSL stream.
-
-## 1 Architecture
-### 1.1 INPUTS:
-- from OTBiolab quattrocento ethernet packets.
-### 1.2 OUTPUTS:
-- LSL stream
 
 ## 2 Installation
 ### 2.1 Ubuntu 18
