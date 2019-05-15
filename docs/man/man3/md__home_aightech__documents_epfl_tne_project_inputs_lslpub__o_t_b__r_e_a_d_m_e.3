@@ -1,0 +1,153 @@
+.TH "md__home_aightech__documents_epfl_tne_project_inputs_lslpub__o_t_b__r_e_a_d_m_e" 3 "Tue May 14 2019" "lslpub_OTB" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md__home_aightech__documents_epfl_tne_project_inputs_lslpub__o_t_b__r_e_a_d_m_elslpub_OTB 
+ \- [https://aightech.github.io/lslpub_OTB/html/index.html](Documentation)
+.PP
+C++ programs that gets the data from the OTBiolab quattrocento device and publishes them in a LSL stream\&.
+.PP
+.SS "1 Architecture"
+.PP
+.SS "1\&.1 INPUTS:"
+.PP
+.IP "\(bu" 2
+from OTBiolab quattrocento ethernet packets\&. 
+.SS "1\&.2 OUTPUTS:"
+
+.PP
+.PP
+.IP "\(bu" 2
+LSL stream
+.PP
+.PP
+.SS "2 Installation"
+.PP
+.SS "2\&.1 Ubuntu 18"
+.PP
+.SS "2\&.1\&.1 \fBRequirements\fP"
+.PP
+None\&. 
+.SS "2\&.1\&.2 Steps"
+.PP
+.IP "\(bu" 2
+Clone the repository and go inside\&. 
+.PP
+.nf
+git clone https://github\&.com/Aightech/lslpub_OTB\&.git && cd lslpub_OTB
+
+.fi
+.PP
+
+.IP "\(bu" 2
+Create a build directory and go inside\&.
+.IP "\(bu" 2
+Configure the project\&.
+.IP "\(bu" 2
+Build the project\&. 
+.PP
+.nf
+mkdir build && cd build && cmake \&.\&. && cmake --build \&.
+
+.fi
+.PP
+ 
+.SS "create wired connection"
+
+.PP
+.PP
+Sttings>Network> add a new wired connection IPv4> Manual: address: 169\&.254\&.1\&.0 | netmask: 255\&.255\&.255\&.0 | gateway: 169\&.254\&.1\&.0
+.PP
+\fBRq:\fP \fIThe exe file is called lslpub_OTB\&. This file has also been copied in the bin floder of the git repository root\&.\fP
+.PP
+.SS "2\&.2 Windows 10"
+.PP
+.SS "2\&.2\&.1 \fBRequirements\fP"
+.PP
+.IP "\(bu" 2
+\fCCMake\fP (download and execute the installer for windows , add to the PATH variable)
+.IP "\(bu" 2
+\fCMinGW32\fP (download and execute the installer for windows, chose i686_64 architecture, add the the bin folder address of minGW to the PATH environement variable)\&.
+.IP "\(bu" 2
+\fC\fBGit\fP\fP Download and install git\&. 
+.SS "Steps"
+
+.PP
+.PP
+.IP "\(bu" 2
+Clone the repository and go inside\&. 
+.PP
+.nf
+git clone https://github\&.com/Aightech/lslpub_OTB\&.git && cd lslpub_OTB
+
+.fi
+.PP
+
+.IP "\(bu" 2
+Create a build directory\&.
+.IP "\(bu" 2
+Configure and generate the CMake project\&.
+.IP "\(bu" 2
+Build the project\&. 
+.PP
+.nf
+mkdir build && cd build && cmake \&.\&. -G "MinGW Makefiles" && mingw32-make
+
+.fi
+.PP
+ \fBRq:\fP \fIThe exe file is called lslpub_OTB\&. This file has also been copied in the bin floder of the git repository root\&.\fP
+.PP
+.PP
+.SS "2\&.2\&.3 Build LSL library on windows"
+.PP
+You can also follow this guide https://github.com/sccn/labstreaminglayer/blob/master/doc/BUILD.md\&. 
+.SS "2\&.2\&.3\&.1 \fBRequirements\fP"
+.PP
+.IP "\(bu" 2
+\fC\fBCmake\fP\fP Download and install cmake\&.
+.IP "\(bu" 2
+\fC\fBQt\fP\fP Download qt installer (open source version)\&.
+.IP "\(bu" 2
+\fC\fBBoost libraries\fP\fP Download boost lib (last binaries version)\&.
+.IP "\(bu" 2
+\fC\fBGit\fP\fP Download and install git\&.
+.IP "\(bu" 2
+\fC\fBMinGW32\fP\fP (download and execute the installer for windows, chose i686_64 architecture, add the the bin folder address of minGW to the PATH environement variable)
+.PP
+.PP
+.SS "2\&.2\&.3\&.2 Steps"
+.PP
+.IP "\(bu" 2
+Clone the repository and go inside\&. 
+.PP
+.nf
+git clone --recurse-submodules https://github\&.com/labstreaminglayer/labstreaminglayer\&.git &&cd labstreaminglayer
+
+.fi
+.PP
+
+.IP "\(bu" 2
+Create a build repository and go inside\&. 
+.PP
+.nf
+mkdir build && cd build
+
+.fi
+.PP
+ Configure and generate the project with the GUI\&. 
+.PP
+.nf
+cmake-gui
+
+.fi
+.PP
+ Click on 'configure'\&. Select the MinGW MakeFile\&. Check if the boost libraries and Qt are correct\&. Then click on 'generate'\&. In the command prompt, build the project\&. 
+.PP
+.nf
+cmake --build \&. --config Release --target install
+
+.fi
+.PP
+ 
+.PP
+

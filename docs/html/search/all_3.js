@@ -1,11 +1,5 @@
 var searchData=
 [
-  ['decim',['DECIM',['../d8/de3/_o_t_bconfig_8h.html#a76df0c2a7422b57efb6bdafad46eccad',1,'OTBconfig.h']]],
-  ['deduced_5ftimestamp',['DEDUCED_TIMESTAMP',['../d3/db0/namespacelsl.html#a57df17d8a2563a18b8b759a0cec696cc',1,'lsl']]],
-  ['desc',['desc',['../d1/d6a/classlsl_1_1stream__info.html#a7bbc53bb041757eb87c6c73564981390',1,'lsl::stream_info']]],
-  ['detection_5fmode_5fbipolar',['DETECTION_MODE_BIPOLAR',['../d8/de3/_o_t_bconfig_8h.html#a4c9dee6a6de692f2896c5fc0d4e247a4',1,'OTBconfig.h']]],
-  ['detection_5fmode_5fdifferencial',['DETECTION_MODE_DIFFERENCIAL',['../d8/de3/_o_t_bconfig_8h.html#a13d0cb34c330e7b5810e9076f3ee1b72',1,'OTBconfig.h']]],
-  ['detection_5fmode_5fmonopolar',['DETECTION_MODE_MONOPOLAR',['../d8/de3/_o_t_bconfig_8h.html#a131e3f6a86f4c81571ec3ecefe27d877',1,'OTBconfig.h']]],
-  ['dorsal_5finterossei',['Dorsal_Interossei',['../d8/de3/_o_t_bconfig_8h.html#aa1acc05a927e6c8e90cb1089333cfe4e',1,'OTBconfig.h']]],
-  ['doxygen_2dbootstrap',['Doxygen-Bootstrap',['../d4/d89/md_docs__doxygen-_bootstrap__r_e_a_d_m_e.html',1,'']]]
+  ['empty',['empty',['../d9/d90/classlsl_1_1xml__element.html#a787dcaf85abcc5cd4d5f93fc80c82eb5',1,'lsl::xml_element']]],
+  ['error',['error',['../d3/d62/tools_8cpp.html#a61c5db3de2e3870f15756d0ad8440990',1,'tools.cpp']]]
 ];

@@ -1,4 +1,4 @@
-.TH "lsl::stream_info" 3 "Fri May 10 2019" "lslpub_OTB" \" -*- nroff -*-
+.TH "lsl::stream_info" 3 "Tue May 14 2019" "lslpub_OTB" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -6,13 +6,11 @@ lsl::stream_info
 .SH SYNOPSIS
 .br
 .PP
-.PP
-\fC#include <lsl_cpp\&.h>\fP
 .SS "Public Member Functions"
 
 .in +1c
 .ti -1c
-.RI "\fBstream_info\fP (const std::string &\fBname\fP, const std::string &\fBtype\fP, int32_t \fBchannel_count\fP=1, double \fBnominal_srate\fP=\fBIRREGULAR_RATE\fP, \fBchannel_format_t\fP \fBchannel_format\fP=\fBcf_float32\fP, const std::string &\fBsource_id\fP=std::string())"
+.RI "\fBstream_info\fP (const std::string &\fBname\fP, const std::string &\fBtype\fP, int32_t \fBchannel_count\fP=1, double \fBnominal_srate\fP=\fBIRREGULAR_RATE\fP, \fBchannel_format_t\fP \fBchannel_format\fP=cf_float32, const std::string &\fBsource_id\fP=std::string())"
 .br
 .ti -1c
 .RI "\fBstream_info\fP (\fBlsl_streaminfo\fP \fBhandle\fP)"
@@ -98,7 +96,7 @@ lsl::stream_info
 .in -1c
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "lsl::stream_info::stream_info (const std::string & name, const std::string & type, int32_t channel_count = \fC1\fP, double nominal_srate = \fC\fBIRREGULAR_RATE\fP\fP, \fBchannel_format_t\fP channel_format = \fC\fBcf_float32\fP\fP, const std::string & source_id = \fCstd::string()\fP)\fC [inline]\fP"
+.SS "lsl::stream_info::stream_info (const std::string & name, const std::string & type, int32_t channel_count = \fC1\fP, double nominal_srate = \fC\fBIRREGULAR_RATE\fP\fP, \fBchannel_format_t\fP channel_format = \fCcf_float32\fP, const std::string & source_id = \fCstd::string()\fP)\fC [inline]\fP"
 Construct a new \fBstream_info\fP object\&. Core stream information is specified here\&. Any remaining meta-data can be added later\&. 
 .PP
 \fBParameters:\fP
@@ -117,28 +115,10 @@ Construct a new \fBstream_info\fP object\&. Core stream information is specified
 .RE
 .PP
 
-.SS "lsl::stream_info::stream_info (\fBlsl_streaminfo\fP handle)\fC [inline]\fP"
-
-.SS "lsl::stream_info::stream_info ()\fC [inline]\fP"
-
-.PP
-Default contructor\&. 
-.SS "lsl::stream_info::stream_info (const \fBstream_info\fP & rhs)\fC [inline]\fP"
-
-.PP
-Copy constructor\&. 
-.SS "lsl::stream_info::~stream_info ()\fC [inline]\fP"
-
-.PP
-Destructor\&. 
 .SH "Member Function Documentation"
 .PP 
 .SS "std::string lsl::stream_info::as_xml () const\fC [inline]\fP"
 Retrieve the entire \fBstream_info\fP in XML format\&. This yields an XML document (in string form) whose top-level element is <info>\&. The info element contains one element for each field of the \fBstream_info\fP class, including: a) the core elements <name>, <type>, <channel_count>, <nominal_srate>, <channel_format>, <source_id> b) the misc elements <version>, <created_at>, <uid>, <session_id>, <v4address>, <v4data_port>, <v4service_port>, <v6address>, <v6data_port>, <v6service_port> c) the extended description element <desc> with user-defined sub-elements\&. 
-.SS "int32_t lsl::stream_info::channel_bytes () const\fC [inline]\fP"
-
-.PP
-Number of bytes occupied by a channel (0 for string-typed channels)\&. 
 .SS "int32_t lsl::stream_info::channel_count () const\fC [inline]\fP"
 Number of channels of the stream\&. A stream has at least one channel; the channel count stays constant for all samples\&. 
 .SS "\fBchannel_format_t\fP lsl::stream_info::channel_format () const\fC [inline]\fP"
@@ -149,14 +129,6 @@ Creation time stamp of the stream\&. This is the time stamp when the stream was 
 Extended description of the stream\&. It is highly recommended that at least the channel labels are described here\&. See code examples on the LSL wiki\&. Other information, such as amplifier settings, measurement units if deviating from defaults, setup information, subject information, etc\&., can be specified here, as well\&. Meta-data recommendations follow the XDF file format project (github\&.com/sccn/xdf/wiki/Meta-Data or web search for: XDF meta-data)\&.
 .PP
 Important: if you use a stream content type for which meta-data recommendations exist, please try to lay out your meta-data in agreement with these recommendations for compatibility with other applications\&. 
-.SS "static \fBstream_info\fP lsl::stream_info::from_xml (const std::string & xml)\fC [inline]\fP, \fC [static]\fP"
-
-.PP
-Utility function to create a \fBstream_info\fP from an XML representation\&. 
-.SS "\fBlsl_streaminfo\fP lsl::stream_info::handle () const\fC [inline]\fP"
-
-.PP
-Get the implementation handle\&. 
 .SS "std::string lsl::stream_info::hostname () const\fC [inline]\fP"
 Hostname of the providing machine\&. 
 .SS "bool lsl::stream_info::matches_query (const char * query) const\fC [inline]\fP"
@@ -180,14 +152,6 @@ Name of the stream\&. This is a human-readable name\&. For streams offered by de
 Sampling rate of the stream, according to the source (in Hz)\&. If a stream is irregularly sampled, this should be set to IRREGULAR_RATE\&.
 .PP
 Note that no data will be lost even if this sampling rate is incorrect or if a device has temporary hiccups, since all samples will be recorded anyway (except for those dropped by the device itself)\&. However, when the recording is imported into an application, a good importer may correct such errors more accurately if the advertised sampling rate was close to the specs of the device\&. 
-.SS "\fBstream_info\fP& lsl::stream_info::operator= (const \fBstream_info\fP & rhs)\fC [inline]\fP"
-
-.PP
-Assignment operator\&. 
-.SS "int32_t lsl::stream_info::sample_bytes () const\fC [inline]\fP"
-
-.PP
-Number of bytes occupied by a sample (0 for string-typed channels)\&. 
 .SS "std::string lsl::stream_info::session_id () const\fC [inline]\fP"
 Session ID for the given stream\&. The session id is an optional human-assigned identifier of the recording session\&. While it is rarely used, it can be used to prevent concurrent recording activitites on the same sub-network (e\&.g\&., in multiple experiment areas) from seeing each other's streams (assigned via a configuration file by the experimenter, see Network Connectivity in the LSL wiki)\&. 
 .SS "std::string lsl::stream_info::source_id () const\fC [inline]\fP"

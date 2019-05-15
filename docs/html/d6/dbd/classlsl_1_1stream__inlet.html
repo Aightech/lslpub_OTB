@@ -1,4 +1,3 @@
-<!-- HTML header for doxygen 1.8.13-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -21,7 +20,6 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-<link href="../../doxy-boot.js" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -29,6 +27,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="../../logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">lslpub_OTB
    </div>
@@ -89,8 +88,6 @@ $(document).ready(function(){initNavTree('d6/dbd/classlsl_1_1stream__inlet.html'
 <div class="title">lsl::stream_inlet Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p><code>#include &lt;<a class="el" href="../../d1/d7c/lsl__cpp_8h_source.html">lsl_cpp.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -106,40 +103,53 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a77c2f10ed843723c7473aa52dcf544a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a845d95f5fc60fb9cd01fb73d3da75e94"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#a845d95f5fc60fb9cd01fb73d3da75e94">time_correction</a> (double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
 <tr class="separator:a845d95f5fc60fb9cd01fb73d3da75e94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9603f3365093f43f9e2bae1b9e9b2cd8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#a9603f3365093f43f9e2bae1b9e9b2cd8">time_correction</a> (double *remote_time, double *uncertainty, double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
+<tr class="memitem:a9603f3365093f43f9e2bae1b9e9b2cd8"><td class="memItemLeft" align="right" valign="top"><a id="a9603f3365093f43f9e2bae1b9e9b2cd8"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>time_correction</b> (double *remote_time, double *uncertainty, double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
 <tr class="separator:a9603f3365093f43f9e2bae1b9e9b2cd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf40ba9c127a1828933613d0f2b0fc3d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#aaf40ba9c127a1828933613d0f2b0fc3d">set_postprocessing</a> (uint32_t flags=<a class="el" href="../../d3/db0/namespacelsl.html#aaa1cffa7d29bb2756522bc2bb069e310a198f16659e71b850e4674ed31d10e914">post_ALL</a>)</td></tr>
+<tr class="memitem:aaf40ba9c127a1828933613d0f2b0fc3d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#aaf40ba9c127a1828933613d0f2b0fc3d">set_postprocessing</a> (uint32_t flags=post_ALL)</td></tr>
 <tr class="separator:aaf40ba9c127a1828933613d0f2b0fc3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58dc91be6ec0d1b83024a169ad0c292b"><td class="memTemplParams" colspan="2">template&lt;class T , int N&gt; </td></tr>
 <tr class="memitem:a58dc91be6ec0d1b83024a169ad0c292b"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#a58dc91be6ec0d1b83024a169ad0c292b">pull_sample</a> (T sample[N], double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
 <tr class="separator:a58dc91be6ec0d1b83024a169ad0c292b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3707fbfd5e9f54be73f9d55de55a8fc"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#af3707fbfd5e9f54be73f9d55de55a8fc">pull_sample</a> (std::vector&lt; float &gt; &amp;sample, double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
 <tr class="separator:af3707fbfd5e9f54be73f9d55de55a8fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a447dd270fa83d8f1df16963b8601027e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#a447dd270fa83d8f1df16963b8601027e">pull_sample</a> (std::vector&lt; double &gt; &amp;sample, double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
+<tr class="memitem:a447dd270fa83d8f1df16963b8601027e"><td class="memItemLeft" align="right" valign="top"><a id="a447dd270fa83d8f1df16963b8601027e"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>pull_sample</b> (std::vector&lt; double &gt; &amp;sample, double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
 <tr class="separator:a447dd270fa83d8f1df16963b8601027e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80fecf88ba609c7e4898eb16a49f2b75"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#a80fecf88ba609c7e4898eb16a49f2b75">pull_sample</a> (std::vector&lt; long &gt; &amp;sample, double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
+<tr class="memitem:a80fecf88ba609c7e4898eb16a49f2b75"><td class="memItemLeft" align="right" valign="top"><a id="a80fecf88ba609c7e4898eb16a49f2b75"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>pull_sample</b> (std::vector&lt; long &gt; &amp;sample, double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
 <tr class="separator:a80fecf88ba609c7e4898eb16a49f2b75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af33558ccbbe57767386278d2255db1a1"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#af33558ccbbe57767386278d2255db1a1">pull_sample</a> (std::vector&lt; int32_t &gt; &amp;sample, double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
+<tr class="memitem:af33558ccbbe57767386278d2255db1a1"><td class="memItemLeft" align="right" valign="top"><a id="af33558ccbbe57767386278d2255db1a1"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>pull_sample</b> (std::vector&lt; int32_t &gt; &amp;sample, double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
 <tr class="separator:af33558ccbbe57767386278d2255db1a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7789d75e1afceaf5187e8bc33a0b99be"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#a7789d75e1afceaf5187e8bc33a0b99be">pull_sample</a> (std::vector&lt; int16_t &gt; &amp;sample, double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
+<tr class="memitem:a7789d75e1afceaf5187e8bc33a0b99be"><td class="memItemLeft" align="right" valign="top"><a id="a7789d75e1afceaf5187e8bc33a0b99be"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>pull_sample</b> (std::vector&lt; int16_t &gt; &amp;sample, double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
 <tr class="separator:a7789d75e1afceaf5187e8bc33a0b99be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a2a662e0b723d7f2101b79eb08371b7"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#a3a2a662e0b723d7f2101b79eb08371b7">pull_sample</a> (std::vector&lt; char &gt; &amp;sample, double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
+<tr class="memitem:a3a2a662e0b723d7f2101b79eb08371b7"><td class="memItemLeft" align="right" valign="top"><a id="a3a2a662e0b723d7f2101b79eb08371b7"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>pull_sample</b> (std::vector&lt; char &gt; &amp;sample, double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
 <tr class="separator:a3a2a662e0b723d7f2101b79eb08371b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78a36bf33ddfc7101bd15cb5bcb9561d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#a78a36bf33ddfc7101bd15cb5bcb9561d">pull_sample</a> (std::vector&lt; std::string &gt; &amp;sample, double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
+<tr class="memitem:a78a36bf33ddfc7101bd15cb5bcb9561d"><td class="memItemLeft" align="right" valign="top"><a id="a78a36bf33ddfc7101bd15cb5bcb9561d"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>pull_sample</b> (std::vector&lt; std::string &gt; &amp;sample, double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
 <tr class="separator:a78a36bf33ddfc7101bd15cb5bcb9561d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a10bd640a10c317ba4a0244cc986146"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#a4a10bd640a10c317ba4a0244cc986146">pull_sample</a> (float *buffer, int32_t buffer_elements, double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
 <tr class="separator:a4a10bd640a10c317ba4a0244cc986146"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb78fe666a3be090278bc3d1f3eb7619"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#acb78fe666a3be090278bc3d1f3eb7619">pull_sample</a> (double *buffer, int32_t buffer_elements, double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
+<tr class="memitem:acb78fe666a3be090278bc3d1f3eb7619"><td class="memItemLeft" align="right" valign="top"><a id="acb78fe666a3be090278bc3d1f3eb7619"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>pull_sample</b> (double *buffer, int32_t buffer_elements, double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
 <tr class="separator:acb78fe666a3be090278bc3d1f3eb7619"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a774c17a647ebd321b5ce4a5450f71202"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#a774c17a647ebd321b5ce4a5450f71202">pull_sample</a> (long *buffer, int32_t buffer_elements, double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
+<tr class="memitem:a774c17a647ebd321b5ce4a5450f71202"><td class="memItemLeft" align="right" valign="top"><a id="a774c17a647ebd321b5ce4a5450f71202"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>pull_sample</b> (long *buffer, int32_t buffer_elements, double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
 <tr class="separator:a774c17a647ebd321b5ce4a5450f71202"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4534102453ccd98f319c746ec1de0a9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#ae4534102453ccd98f319c746ec1de0a9">pull_sample</a> (int32_t *buffer, int32_t buffer_elements, double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
+<tr class="memitem:ae4534102453ccd98f319c746ec1de0a9"><td class="memItemLeft" align="right" valign="top"><a id="ae4534102453ccd98f319c746ec1de0a9"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>pull_sample</b> (int32_t *buffer, int32_t buffer_elements, double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
 <tr class="separator:ae4534102453ccd98f319c746ec1de0a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3462f2634ce13e7f9c764e16a58a71a6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#a3462f2634ce13e7f9c764e16a58a71a6">pull_sample</a> (int16_t *buffer, int32_t buffer_elements, double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
+<tr class="memitem:a3462f2634ce13e7f9c764e16a58a71a6"><td class="memItemLeft" align="right" valign="top"><a id="a3462f2634ce13e7f9c764e16a58a71a6"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>pull_sample</b> (int16_t *buffer, int32_t buffer_elements, double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
 <tr class="separator:a3462f2634ce13e7f9c764e16a58a71a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9183e81a122df862eff9ea9797c82b73"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#a9183e81a122df862eff9ea9797c82b73">pull_sample</a> (char *buffer, int32_t buffer_elements, double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
+<tr class="memitem:a9183e81a122df862eff9ea9797c82b73"><td class="memItemLeft" align="right" valign="top"><a id="a9183e81a122df862eff9ea9797c82b73"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>pull_sample</b> (char *buffer, int32_t buffer_elements, double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
 <tr class="separator:a9183e81a122df862eff9ea9797c82b73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52e95747438991868e3eb9c791e24f42"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#a52e95747438991868e3eb9c791e24f42">pull_sample</a> (std::string *buffer, int32_t buffer_elements, double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
+<tr class="memitem:a52e95747438991868e3eb9c791e24f42"><td class="memItemLeft" align="right" valign="top"><a id="a52e95747438991868e3eb9c791e24f42"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>pull_sample</b> (std::string *buffer, int32_t buffer_elements, double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
 <tr class="separator:a52e95747438991868e3eb9c791e24f42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a540c7ba2c23188916ffe311c26c2c081"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:a540c7ba2c23188916ffe311c26c2c081"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#a540c7ba2c23188916ffe311c26c2c081">pull_numeric_struct</a> (T &amp;sample, double timeout=<a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a>)</td></tr>
@@ -157,17 +167,23 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a558f53812f5dc3c19b2cbe0026a61f6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97adf2cb7d60e4b47bf25217a2b17964"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#a97adf2cb7d60e4b47bf25217a2b17964">pull_chunk_multiplexed</a> (float *data_buffer, double *timestamp_buffer, std::size_t data_buffer_elements, std::size_t timestamp_buffer_elements, double timeout=0.0)</td></tr>
 <tr class="separator:a97adf2cb7d60e4b47bf25217a2b17964"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abdb890fbad785ed4bc39288fc2f47329"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#abdb890fbad785ed4bc39288fc2f47329">pull_chunk_multiplexed</a> (double *data_buffer, double *timestamp_buffer, std::size_t data_buffer_elements, std::size_t timestamp_buffer_elements, double timeout=0.0)</td></tr>
+<tr class="memitem:abdb890fbad785ed4bc39288fc2f47329"><td class="memItemLeft" align="right" valign="top"><a id="abdb890fbad785ed4bc39288fc2f47329"></a>
+std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>pull_chunk_multiplexed</b> (double *data_buffer, double *timestamp_buffer, std::size_t data_buffer_elements, std::size_t timestamp_buffer_elements, double timeout=0.0)</td></tr>
 <tr class="separator:abdb890fbad785ed4bc39288fc2f47329"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2f2c576a6b5a3bf562878200829bb47"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#aa2f2c576a6b5a3bf562878200829bb47">pull_chunk_multiplexed</a> (long *data_buffer, double *timestamp_buffer, std::size_t data_buffer_elements, std::size_t timestamp_buffer_elements, double timeout=0.0)</td></tr>
+<tr class="memitem:aa2f2c576a6b5a3bf562878200829bb47"><td class="memItemLeft" align="right" valign="top"><a id="aa2f2c576a6b5a3bf562878200829bb47"></a>
+std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>pull_chunk_multiplexed</b> (long *data_buffer, double *timestamp_buffer, std::size_t data_buffer_elements, std::size_t timestamp_buffer_elements, double timeout=0.0)</td></tr>
 <tr class="separator:aa2f2c576a6b5a3bf562878200829bb47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b93d803b348905bc34747c5820d6364"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#a3b93d803b348905bc34747c5820d6364">pull_chunk_multiplexed</a> (int32_t *data_buffer, double *timestamp_buffer, std::size_t data_buffer_elements, std::size_t timestamp_buffer_elements, double timeout=0.0)</td></tr>
+<tr class="memitem:a3b93d803b348905bc34747c5820d6364"><td class="memItemLeft" align="right" valign="top"><a id="a3b93d803b348905bc34747c5820d6364"></a>
+std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>pull_chunk_multiplexed</b> (int32_t *data_buffer, double *timestamp_buffer, std::size_t data_buffer_elements, std::size_t timestamp_buffer_elements, double timeout=0.0)</td></tr>
 <tr class="separator:a3b93d803b348905bc34747c5820d6364"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40e9727b155e274df482e4579e60f3b3"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#a40e9727b155e274df482e4579e60f3b3">pull_chunk_multiplexed</a> (int16_t *data_buffer, double *timestamp_buffer, std::size_t data_buffer_elements, std::size_t timestamp_buffer_elements, double timeout=0.0)</td></tr>
+<tr class="memitem:a40e9727b155e274df482e4579e60f3b3"><td class="memItemLeft" align="right" valign="top"><a id="a40e9727b155e274df482e4579e60f3b3"></a>
+std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>pull_chunk_multiplexed</b> (int16_t *data_buffer, double *timestamp_buffer, std::size_t data_buffer_elements, std::size_t timestamp_buffer_elements, double timeout=0.0)</td></tr>
 <tr class="separator:a40e9727b155e274df482e4579e60f3b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85ee4c75121e8ee54de22f228a3abae5"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#a85ee4c75121e8ee54de22f228a3abae5">pull_chunk_multiplexed</a> (char *data_buffer, double *timestamp_buffer, std::size_t data_buffer_elements, std::size_t timestamp_buffer_elements, double timeout=0.0)</td></tr>
+<tr class="memitem:a85ee4c75121e8ee54de22f228a3abae5"><td class="memItemLeft" align="right" valign="top"><a id="a85ee4c75121e8ee54de22f228a3abae5"></a>
+std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>pull_chunk_multiplexed</b> (char *data_buffer, double *timestamp_buffer, std::size_t data_buffer_elements, std::size_t timestamp_buffer_elements, double timeout=0.0)</td></tr>
 <tr class="separator:a85ee4c75121e8ee54de22f228a3abae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a0f2f39152a2975571d5073d9967646"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#a6a0f2f39152a2975571d5073d9967646">pull_chunk_multiplexed</a> (std::string *data_buffer, double *timestamp_buffer, std::size_t data_buffer_elements, std::size_t timestamp_buffer_elements, double timeout=0.0)</td></tr>
+<tr class="memitem:a6a0f2f39152a2975571d5073d9967646"><td class="memItemLeft" align="right" valign="top"><a id="a6a0f2f39152a2975571d5073d9967646"></a>
+std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>pull_chunk_multiplexed</b> (std::string *data_buffer, double *timestamp_buffer, std::size_t data_buffer_elements, std::size_t timestamp_buffer_elements, double timeout=0.0)</td></tr>
 <tr class="separator:a6a0f2f39152a2975571d5073d9967646"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ac87825319b345987fdd54e606fd56f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a9ac87825319b345987fdd54e606fd56f"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#a9ac87825319b345987fdd54e606fd56f">pull_chunk_multiplexed</a> (std::vector&lt; T &gt; &amp;chunk, std::vector&lt; double &gt; *timestamps=nullptr, double timeout=0.0, bool append=false)</td></tr>
@@ -188,7 +204,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac3b8fa8912090ad6607b05cbb5848352"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2774c1dbcf3fc7b17505e8814921d17c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#a2774c1dbcf3fc7b17505e8814921d17c">smoothing_halftime</a> (float value)</td></tr>
 <tr class="separator:a2774c1dbcf3fc7b17505e8814921d17c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad86702cf94e5b0b850a2f94a228e4f98"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#ad86702cf94e5b0b850a2f94a228e4f98">get_channel_count</a> () const</td></tr>
+<tr class="memitem:ad86702cf94e5b0b850a2f94a228e4f98"><td class="memItemLeft" align="right" valign="top"><a id="ad86702cf94e5b0b850a2f94a228e4f98"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>get_channel_count</b> () const</td></tr>
 <tr class="separator:ad86702cf94e5b0b850a2f94a228e4f98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -299,31 +316,6 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Drop the current data stream. All samples that are still buffered or in flight will be dropped and transmission and buffering of data for this inlet will be stopped. If an application stops being interested in data from a source (temporarily or not) but keeps the outlet alive, it should call <a class="el" href="../../d6/dbd/classlsl_1_1stream__inlet.html#a77c2f10ed843723c7473aa52dcf544a0">close_stream()</a> to not waste unnecessary system and network resources. </p>
-
-</div>
-</div>
-<a id="ad86702cf94e5b0b850a2f94a228e4f98"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad86702cf94e5b0b850a2f94a228e4f98">&#9670;&nbsp;</a></span>get_channel_count()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int lsl::stream_inlet::get_channel_count </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
 
 </div>
 </div>
@@ -531,7 +523,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="a97adf2cb7d60e4b47bf25217a2b17964"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97adf2cb7d60e4b47bf25217a2b17964">&#9670;&nbsp;</a></span>pull_chunk_multiplexed() <span class="overload">[1/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a97adf2cb7d60e4b47bf25217a2b17964">&#9670;&nbsp;</a></span>pull_chunk_multiplexed() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -601,332 +593,8 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a id="abdb890fbad785ed4bc39288fc2f47329"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abdb890fbad785ed4bc39288fc2f47329">&#9670;&nbsp;</a></span>pull_chunk_multiplexed() <span class="overload">[2/8]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::size_t lsl::stream_inlet::pull_chunk_multiplexed </td>
-          <td>(</td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>data_buffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>timestamp_buffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>data_buffer_elements</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>timestamp_buffer_elements</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>timeout</em> = <code>0.0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa2f2c576a6b5a3bf562878200829bb47"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2f2c576a6b5a3bf562878200829bb47">&#9670;&nbsp;</a></span>pull_chunk_multiplexed() <span class="overload">[3/8]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::size_t lsl::stream_inlet::pull_chunk_multiplexed </td>
-          <td>(</td>
-          <td class="paramtype">long *&#160;</td>
-          <td class="paramname"><em>data_buffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>timestamp_buffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>data_buffer_elements</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>timestamp_buffer_elements</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>timeout</em> = <code>0.0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3b93d803b348905bc34747c5820d6364"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b93d803b348905bc34747c5820d6364">&#9670;&nbsp;</a></span>pull_chunk_multiplexed() <span class="overload">[4/8]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::size_t lsl::stream_inlet::pull_chunk_multiplexed </td>
-          <td>(</td>
-          <td class="paramtype">int32_t *&#160;</td>
-          <td class="paramname"><em>data_buffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>timestamp_buffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>data_buffer_elements</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>timestamp_buffer_elements</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>timeout</em> = <code>0.0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a40e9727b155e274df482e4579e60f3b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40e9727b155e274df482e4579e60f3b3">&#9670;&nbsp;</a></span>pull_chunk_multiplexed() <span class="overload">[5/8]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::size_t lsl::stream_inlet::pull_chunk_multiplexed </td>
-          <td>(</td>
-          <td class="paramtype">int16_t *&#160;</td>
-          <td class="paramname"><em>data_buffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>timestamp_buffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>data_buffer_elements</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>timestamp_buffer_elements</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>timeout</em> = <code>0.0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a85ee4c75121e8ee54de22f228a3abae5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85ee4c75121e8ee54de22f228a3abae5">&#9670;&nbsp;</a></span>pull_chunk_multiplexed() <span class="overload">[6/8]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::size_t lsl::stream_inlet::pull_chunk_multiplexed </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>data_buffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>timestamp_buffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>data_buffer_elements</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>timestamp_buffer_elements</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>timeout</em> = <code>0.0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6a0f2f39152a2975571d5073d9967646"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a0f2f39152a2975571d5073d9967646">&#9670;&nbsp;</a></span>pull_chunk_multiplexed() <span class="overload">[7/8]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::size_t lsl::stream_inlet::pull_chunk_multiplexed </td>
-          <td>(</td>
-          <td class="paramtype">std::string *&#160;</td>
-          <td class="paramname"><em>data_buffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>timestamp_buffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>data_buffer_elements</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>timestamp_buffer_elements</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>timeout</em> = <code>0.0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a9ac87825319b345987fdd54e606fd56f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ac87825319b345987fdd54e606fd56f">&#9670;&nbsp;</a></span>pull_chunk_multiplexed() <span class="overload">[8/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ac87825319b345987fdd54e606fd56f">&#9670;&nbsp;</a></span>pull_chunk_multiplexed() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1230,7 +898,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="a58dc91be6ec0d1b83024a169ad0c292b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58dc91be6ec0d1b83024a169ad0c292b">&#9670;&nbsp;</a></span>pull_sample() <span class="overload">[1/15]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a58dc91be6ec0d1b83024a169ad0c292b">&#9670;&nbsp;</a></span>pull_sample() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1282,7 +950,7 @@ template&lt;class T , int N&gt; </div>
 </div>
 </div>
 <a id="af3707fbfd5e9f54be73f9d55de55a8fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3707fbfd5e9f54be73f9d55de55a8fc">&#9670;&nbsp;</a></span>pull_sample() <span class="overload">[2/15]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af3707fbfd5e9f54be73f9d55de55a8fc">&#9670;&nbsp;</a></span>pull_sample() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1331,224 +999,8 @@ template&lt;class T , int N&gt; </div>
 
 </div>
 </div>
-<a id="a447dd270fa83d8f1df16963b8601027e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a447dd270fa83d8f1df16963b8601027e">&#9670;&nbsp;</a></span>pull_sample() <span class="overload">[3/15]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double lsl::stream_inlet::pull_sample </td>
-          <td>(</td>
-          <td class="paramtype">std::vector&lt; double &gt; &amp;&#160;</td>
-          <td class="paramname"><em>sample</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>timeout</em> = <code><a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a></code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a80fecf88ba609c7e4898eb16a49f2b75"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a80fecf88ba609c7e4898eb16a49f2b75">&#9670;&nbsp;</a></span>pull_sample() <span class="overload">[4/15]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double lsl::stream_inlet::pull_sample </td>
-          <td>(</td>
-          <td class="paramtype">std::vector&lt; long &gt; &amp;&#160;</td>
-          <td class="paramname"><em>sample</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>timeout</em> = <code><a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a></code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af33558ccbbe57767386278d2255db1a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af33558ccbbe57767386278d2255db1a1">&#9670;&nbsp;</a></span>pull_sample() <span class="overload">[5/15]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double lsl::stream_inlet::pull_sample </td>
-          <td>(</td>
-          <td class="paramtype">std::vector&lt; int32_t &gt; &amp;&#160;</td>
-          <td class="paramname"><em>sample</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>timeout</em> = <code><a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a></code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7789d75e1afceaf5187e8bc33a0b99be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7789d75e1afceaf5187e8bc33a0b99be">&#9670;&nbsp;</a></span>pull_sample() <span class="overload">[6/15]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double lsl::stream_inlet::pull_sample </td>
-          <td>(</td>
-          <td class="paramtype">std::vector&lt; int16_t &gt; &amp;&#160;</td>
-          <td class="paramname"><em>sample</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>timeout</em> = <code><a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a></code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3a2a662e0b723d7f2101b79eb08371b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a2a662e0b723d7f2101b79eb08371b7">&#9670;&nbsp;</a></span>pull_sample() <span class="overload">[7/15]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double lsl::stream_inlet::pull_sample </td>
-          <td>(</td>
-          <td class="paramtype">std::vector&lt; char &gt; &amp;&#160;</td>
-          <td class="paramname"><em>sample</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>timeout</em> = <code><a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a></code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a78a36bf33ddfc7101bd15cb5bcb9561d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78a36bf33ddfc7101bd15cb5bcb9561d">&#9670;&nbsp;</a></span>pull_sample() <span class="overload">[8/15]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double lsl::stream_inlet::pull_sample </td>
-          <td>(</td>
-          <td class="paramtype">std::vector&lt; std::string &gt; &amp;&#160;</td>
-          <td class="paramname"><em>sample</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>timeout</em> = <code><a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a></code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a4a10bd640a10c317ba4a0244cc986146"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a10bd640a10c317ba4a0244cc986146">&#9670;&nbsp;</a></span>pull_sample() <span class="overload">[9/15]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a10bd640a10c317ba4a0244cc986146">&#9670;&nbsp;</a></span>pull_sample() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1604,258 +1056,6 @@ template&lt;class T , int N&gt; </div>
 
 </div>
 </div>
-<a id="acb78fe666a3be090278bc3d1f3eb7619"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb78fe666a3be090278bc3d1f3eb7619">&#9670;&nbsp;</a></span>pull_sample() <span class="overload">[10/15]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double lsl::stream_inlet::pull_sample </td>
-          <td>(</td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>buffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>buffer_elements</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>timeout</em> = <code><a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a></code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a774c17a647ebd321b5ce4a5450f71202"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a774c17a647ebd321b5ce4a5450f71202">&#9670;&nbsp;</a></span>pull_sample() <span class="overload">[11/15]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double lsl::stream_inlet::pull_sample </td>
-          <td>(</td>
-          <td class="paramtype">long *&#160;</td>
-          <td class="paramname"><em>buffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>buffer_elements</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>timeout</em> = <code><a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a></code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae4534102453ccd98f319c746ec1de0a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4534102453ccd98f319c746ec1de0a9">&#9670;&nbsp;</a></span>pull_sample() <span class="overload">[12/15]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double lsl::stream_inlet::pull_sample </td>
-          <td>(</td>
-          <td class="paramtype">int32_t *&#160;</td>
-          <td class="paramname"><em>buffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>buffer_elements</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>timeout</em> = <code><a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a></code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3462f2634ce13e7f9c764e16a58a71a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3462f2634ce13e7f9c764e16a58a71a6">&#9670;&nbsp;</a></span>pull_sample() <span class="overload">[13/15]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double lsl::stream_inlet::pull_sample </td>
-          <td>(</td>
-          <td class="paramtype">int16_t *&#160;</td>
-          <td class="paramname"><em>buffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>buffer_elements</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>timeout</em> = <code><a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a></code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9183e81a122df862eff9ea9797c82b73"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9183e81a122df862eff9ea9797c82b73">&#9670;&nbsp;</a></span>pull_sample() <span class="overload">[14/15]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double lsl::stream_inlet::pull_sample </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>buffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>buffer_elements</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>timeout</em> = <code><a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a></code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a52e95747438991868e3eb9c791e24f42"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52e95747438991868e3eb9c791e24f42">&#9670;&nbsp;</a></span>pull_sample() <span class="overload">[15/15]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double lsl::stream_inlet::pull_sample </td>
-          <td>(</td>
-          <td class="paramtype">std::string *&#160;</td>
-          <td class="paramname"><em>buffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>buffer_elements</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>timeout</em> = <code><a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a></code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a8a4f5ff87d40a696ab4a5d74c03cd52b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8a4f5ff87d40a696ab4a5d74c03cd52b">&#9670;&nbsp;</a></span>samples_available()</h2>
 
@@ -1895,7 +1095,7 @@ template&lt;class T , int N&gt; </div>
           <td class="memname">void lsl::stream_inlet::set_postprocessing </td>
           <td>(</td>
           <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>flags</em> = <code><a class="el" href="../../d3/db0/namespacelsl.html#aaa1cffa7d29bb2756522bc2bb069e310a198f16659e71b850e4674ed31d10e914">post_ALL</a></code></td><td>)</td>
+          <td class="paramname"><em>flags</em> = <code>post_ALL</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1942,7 +1142,7 @@ template&lt;class T , int N&gt; </div>
 </div>
 </div>
 <a id="a845d95f5fc60fb9cd01fb73d3da75e94"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a845d95f5fc60fb9cd01fb73d3da75e94">&#9670;&nbsp;</a></span>time_correction() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a845d95f5fc60fb9cd01fb73d3da75e94">&#9670;&nbsp;</a></span>time_correction()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1982,48 +1182,6 @@ template&lt;class T , int N&gt; </div>
 
 </div>
 </div>
-<a id="a9603f3365093f43f9e2bae1b9e9b2cd8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9603f3365093f43f9e2bae1b9e9b2cd8">&#9670;&nbsp;</a></span>time_correction() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double lsl::stream_inlet::time_correction </td>
-          <td>(</td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>remote_time</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>uncertainty</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>timeout</em> = <code><a class="el" href="../../d3/db0/namespacelsl.html#a74cfbc9077aca21295117217249721ed">FOREVER</a></code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="ac3b8fa8912090ad6607b05cbb5848352"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac3b8fa8912090ad6607b05cbb5848352">&#9670;&nbsp;</a></span>was_clock_reset()</h2>
 
@@ -2055,7 +1213,6 @@ template&lt;class T , int N&gt; </div>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<!-- HTML footer for doxygen 1.8.13-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

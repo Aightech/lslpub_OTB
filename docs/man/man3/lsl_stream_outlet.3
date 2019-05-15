@@ -1,4 +1,4 @@
-.TH "lsl::stream_outlet" 3 "Fri May 10 2019" "lslpub_OTB" \" -*- nroff -*-
+.TH "lsl::stream_outlet" 3 "Tue May 14 2019" "lslpub_OTB" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -239,18 +239,6 @@ Push a chunk of multiplexed data into the outlet\&.
 .RE
 .PP
 
-.SS "void lsl::stream_outlet::push_chunk_multiplexed (const std::vector< double > & buffer, double timestamp = \fC0\&.0\fP, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_chunk_multiplexed (const std::vector< long > & buffer, double timestamp = \fC0\&.0\fP, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_chunk_multiplexed (const std::vector< int32_t > & buffer, double timestamp = \fC0\&.0\fP, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_chunk_multiplexed (const std::vector< int16_t > & buffer, double timestamp = \fC0\&.0\fP, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_chunk_multiplexed (const std::vector< char > & buffer, double timestamp = \fC0\&.0\fP, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_chunk_multiplexed (const std::vector< std::string > & buffer, double timestamp = \fC0\&.0\fP, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
 .SS "void lsl::stream_outlet::push_chunk_multiplexed (const std::vector< float > & buffer, const std::vector< double > & timestamps, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
 Push a chunk of multiplexed data into the outlet\&. One timestamp per sample is provided\&. Allows to specify a separate time stamp for each sample (for irregular-rate streams)\&. 
 .PP
@@ -263,18 +251,6 @@ Push a chunk of multiplexed data into the outlet\&. One timestamp per sample is 
 \fIpushthrough\fP Whether to push the chunk through to the receivers instead of buffering it with subsequent samples\&. Note that the chunk_size, if specified at outlet construction, takes precedence over the pushthrough flag\&. 
 .RE
 .PP
-
-.SS "void lsl::stream_outlet::push_chunk_multiplexed (const std::vector< double > & buffer, const std::vector< double > & timestamps, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_chunk_multiplexed (const std::vector< long > & buffer, const std::vector< double > & timestamps, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_chunk_multiplexed (const std::vector< int32_t > & buffer, const std::vector< double > & timestamps, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_chunk_multiplexed (const std::vector< int16_t > & buffer, const std::vector< double > & timestamps, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_chunk_multiplexed (const std::vector< char > & buffer, const std::vector< double > & timestamps, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_chunk_multiplexed (const std::vector< std::string > & buffer, const std::vector< double > & timestamps, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
 
 .SS "void lsl::stream_outlet::push_chunk_multiplexed (const float * buffer, std::size_t buffer_elements, double timestamp = \fC0\&.0\fP, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
 Push a chunk of multiplexed samples into the outlet\&. Single timestamp provided\&. IMPORTANT: Note that the provided buffer size is measured in channel values (e\&.g\&., floats) rather than in samples\&. 
@@ -291,18 +267,6 @@ Push a chunk of multiplexed samples into the outlet\&. Single timestamp provided
 .RE
 .PP
 
-.SS "void lsl::stream_outlet::push_chunk_multiplexed (const double * buffer, std::size_t buffer_elements, double timestamp = \fC0\&.0\fP, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_chunk_multiplexed (const long * buffer, std::size_t buffer_elements, double timestamp = \fC0\&.0\fP, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_chunk_multiplexed (const int32_t * buffer, std::size_t buffer_elements, double timestamp = \fC0\&.0\fP, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_chunk_multiplexed (const int16_t * buffer, std::size_t buffer_elements, double timestamp = \fC0\&.0\fP, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_chunk_multiplexed (const char * buffer, std::size_t buffer_elements, double timestamp = \fC0\&.0\fP, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_chunk_multiplexed (const std::string * buffer, std::size_t buffer_elements, double timestamp = \fC0\&.0\fP, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
 .SS "void lsl::stream_outlet::push_chunk_multiplexed (const float * data_buffer, const double * timestamp_buffer, std::size_t data_buffer_elements, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
 Push a chunk of multiplexed samples into the outlet\&. One timestamp per sample is provided\&. IMPORTANT: Note that the provided buffer size is measured in channel values (e\&.g\&., floats) rather than in samples\&. 
 .PP
@@ -317,18 +281,6 @@ Push a chunk of multiplexed samples into the outlet\&. One timestamp per sample 
 \fIpushthrough\fP Whether to push the chunk through to the receivers instead of buffering it with subsequent samples\&. Note that the chunk_size, if specified at outlet construction, takes precedence over the pushthrough flag\&. 
 .RE
 .PP
-
-.SS "void lsl::stream_outlet::push_chunk_multiplexed (const double * data_buffer, const double * timestamp_buffer, std::size_t data_buffer_elements, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_chunk_multiplexed (const long * data_buffer, const double * timestamp_buffer, std::size_t data_buffer_elements, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_chunk_multiplexed (const int32_t * data_buffer, const double * timestamp_buffer, std::size_t data_buffer_elements, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_chunk_multiplexed (const int16_t * data_buffer, const double * timestamp_buffer, std::size_t data_buffer_elements, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_chunk_multiplexed (const char * data_buffer, const double * timestamp_buffer, std::size_t data_buffer_elements, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_chunk_multiplexed (const std::string * data_buffer, const double * timestamp_buffer, std::size_t data_buffer_elements, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
 
 .SS "template<class T > void lsl::stream_outlet::push_chunk_numeric_structs (const std::vector< T > & samples, double timestamp = \fC0\&.0\fP, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
 Push a chunk of numeric data as C-style structs (batched into an STL vector) into the outlet\&. This performs some size checking but no type checking\&. Can not be used for variable-size / string-formatted data\&. 
@@ -408,18 +360,6 @@ Push a std vector of values as a sample into the outlet\&. Each entry in the vec
 .RE
 .PP
 
-.SS "void lsl::stream_outlet::push_sample (const std::vector< double > & data, double timestamp = \fC0\&.0\fP, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_sample (const std::vector< long > & data, double timestamp = \fC0\&.0\fP, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_sample (const std::vector< int32_t > & data, double timestamp = \fC0\&.0\fP, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_sample (const std::vector< int16_t > & data, double timestamp = \fC0\&.0\fP, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_sample (const std::vector< char > & data, double timestamp = \fC0\&.0\fP, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_sample (const std::vector< std::string > & data, double timestamp = \fC0\&.0\fP, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
 .SS "void lsl::stream_outlet::push_sample (const float * data, double timestamp = \fC0\&.0\fP, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
 Push a pointer to some values as a sample into the outlet\&. This is a lower-level function for cases where data is available in some buffer\&. Handles type checking & conversion\&. 
 .PP
@@ -432,18 +372,6 @@ Push a pointer to some values as a sample into the outlet\&. This is a lower-lev
 \fIpushthrough\fP Whether to push the sample through to the receivers instead of buffering it with subsequent samples\&. Note that the chunk_size, if specified at outlet construction, takes precedence over the pushthrough flag\&. 
 .RE
 .PP
-
-.SS "void lsl::stream_outlet::push_sample (const double * data, double timestamp = \fC0\&.0\fP, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_sample (const long * data, double timestamp = \fC0\&.0\fP, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_sample (const int32_t * data, double timestamp = \fC0\&.0\fP, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_sample (const int16_t * data, double timestamp = \fC0\&.0\fP, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_sample (const char * data, double timestamp = \fC0\&.0\fP, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
-
-.SS "void lsl::stream_outlet::push_sample (const std::string * data, double timestamp = \fC0\&.0\fP, bool pushthrough = \fCtrue\fP)\fC [inline]\fP"
 
 .SS "bool lsl::stream_outlet::wait_for_consumers (double timeout)\fC [inline]\fP"
 Wait until some consumer shows up (without wasting resources)\&. 

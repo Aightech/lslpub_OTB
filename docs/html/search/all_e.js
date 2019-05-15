@@ -1,13 +1,15 @@
 var searchData=
 [
-  ['readme_2emd',['README.md',['../d7/d11/docs_2_doxygen-_bootstrap_2_r_e_a_d_m_e_8md.html',1,'(Global Namespace)'],['../d9/dd6/_r_e_a_d_m_e_8md.html',1,'(Global Namespace)']]],
-  ['rec_5fon',['REC_ON',['../d8/de3/_o_t_bconfig_8h.html#a0cd1a30341827a0978898092ae67f953',1,'OTBconfig.h']]],
-  ['rectus_5fabdominis',['Rectus_Abdominis',['../d8/de3/_o_t_bconfig_8h.html#a785b3d9c8b1e8932316c77ca2cb5bc94',1,'OTBconfig.h']]],
-  ['rectus_5ffemoris',['Rectus_femoris',['../d8/de3/_o_t_bconfig_8h.html#aabc4cfc2f8a50892747ee1ee6769ac39',1,'OTBconfig.h']]],
-  ['remove_5fchild',['remove_child',['../d9/d90/classlsl_1_1xml__element.html#ad23da57ac3a6a7f3dd849be0a8b44a47',1,'lsl::xml_element::remove_child(const std::string &amp;name)'],['../d9/d90/classlsl_1_1xml__element.html#a0c07b18ef39b7f6d683b9612e2a9104e',1,'lsl::xml_element::remove_child(const xml_element &amp;e)']]],
-  ['resolve_5fstream',['resolve_stream',['../d3/db0/namespacelsl.html#a4edfbcc31f48f27e8f7c2a36b69cd4b9',1,'lsl::resolve_stream(const std::string &amp;prop, const std::string &amp;value, int32_t minimum=1, double timeout=FOREVER)'],['../d3/db0/namespacelsl.html#a824e14275a55df97d0552a91fc2c4097',1,'lsl::resolve_stream(const std::string &amp;pred, int32_t minimum=1, double timeout=FOREVER)']]],
-  ['resolve_5fstreams',['resolve_streams',['../d3/db0/namespacelsl.html#a2935ff3db04cd640f69943ad14a61915',1,'lsl']]],
-  ['results',['results',['../d4/d27/classlsl_1_1continuous__resolver.html#ad88c16d36f8a2dc64f4ae4536445e15a',1,'lsl::continuous_resolver']]],
-  ['rhomboideus_5fmajor',['Rhomboideus_Major',['../d8/de3/_o_t_bconfig_8h.html#a7124ae659895bb4f04b3e777b3998bce',1,'OTBconfig.h']]],
-  ['rhomboideus_5fminor',['Rhomboideus_Minor',['../d8/de3/_o_t_bconfig_8h.html#ae3f79083082cec47f0d8b8dbba1c8d93',1,'OTBconfig.h']]]
+  ['sample_5fbytes',['sample_bytes',['../d1/d6a/classlsl_1_1stream__info.html#ab68def3a9c81c289ba46a5b40c6b4084',1,'lsl::stream_info']]],
+  ['samples_5favailable',['samples_available',['../d6/dbd/classlsl_1_1stream__inlet.html#a8a4f5ff87d40a696ab4a5d74c03cd52b',1,'lsl::stream_inlet']]],
+  ['session_5fid',['session_id',['../d1/d6a/classlsl_1_1stream__info.html#a59036c0e83bcb07b711ec7e3e3b15fef',1,'lsl::stream_info']]],
+  ['set_5fchild_5fvalue',['set_child_value',['../d9/d90/classlsl_1_1xml__element.html#a6fe187e03b36cf8fd5f9d3892e99453f',1,'lsl::xml_element']]],
+  ['set_5fname',['set_name',['../d9/d90/classlsl_1_1xml__element.html#a8ddf2b35719b273dbb5700f16a2da4e5',1,'lsl::xml_element']]],
+  ['set_5fpostprocessing',['set_postprocessing',['../d6/dbd/classlsl_1_1stream__inlet.html#aaf40ba9c127a1828933613d0f2b0fc3d',1,'lsl::stream_inlet']]],
+  ['set_5fvalue',['set_value',['../d9/d90/classlsl_1_1xml__element.html#a3a3bbf2468ba3abd9309764faa61a7a4',1,'lsl::xml_element']]],
+  ['smoothing_5fhalftime',['smoothing_halftime',['../d6/dbd/classlsl_1_1stream__inlet.html#a2774c1dbcf3fc7b17505e8814921d17c',1,'lsl::stream_inlet']]],
+  ['source_5fid',['source_id',['../d1/d6a/classlsl_1_1stream__info.html#a1f20c68246a88047978d9b03e14a9d2b',1,'lsl::stream_info']]],
+  ['stream_5finfo',['stream_info',['../d1/d6a/classlsl_1_1stream__info.html',1,'lsl::stream_info'],['../d1/d6a/classlsl_1_1stream__info.html#a874f4899da89168b768cfe9acdd569a0',1,'lsl::stream_info::stream_info(const std::string &amp;name, const std::string &amp;type, int32_t channel_count=1, double nominal_srate=IRREGULAR_RATE, channel_format_t channel_format=cf_float32, const std::string &amp;source_id=std::string())'],['../d1/d6a/classlsl_1_1stream__info.html#a780a9289cc6f1d57215ed297aecfc78b',1,'lsl::stream_info::stream_info()'],['../d1/d6a/classlsl_1_1stream__info.html#a82fd071574212a20ba4faffac5ce7803',1,'lsl::stream_info::stream_info(const stream_info &amp;rhs)']]],
+  ['stream_5finlet',['stream_inlet',['../d6/dbd/classlsl_1_1stream__inlet.html',1,'lsl::stream_inlet'],['../d6/dbd/classlsl_1_1stream__inlet.html#a7c93b7d4fc053b2e3320841371b32919',1,'lsl::stream_inlet::stream_inlet()']]],
+  ['stream_5foutlet',['stream_outlet',['../d6/d55/classlsl_1_1stream__outlet.html',1,'lsl::stream_outlet'],['../d6/d55/classlsl_1_1stream__outlet.html#ac88c568fdc7429d95c51cd7b58d902cc',1,'lsl::stream_outlet::stream_outlet()']]]
 ];

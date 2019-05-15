@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['value',['value',['../d9/d90/classlsl_1_1xml__element.html#a1a5e666b35c5d7262e4ffbda86b57f73',1,'lsl::xml_element']]],
-  ['vastus_5flateralis',['Vastus_lateralis',['../d8/de3/_o_t_bconfig_8h.html#af7a7b58ffa7bbcfe9bf8cc09fa064d43',1,'OTBconfig.h']]],
-  ['vastus_5fmedialis',['Vastus_medialis',['../d8/de3/_o_t_bconfig_8h.html#aa1df5a0180b289f709862ad0a88c59e6',1,'OTBconfig.h']]],
-  ['version',['version',['../d1/d6a/classlsl_1_1stream__info.html#aabd83f83d0abe8671e766e97f471dea9',1,'lsl::stream_info']]]
+  ['wait_5ffor_5fconsumers',['wait_for_consumers',['../d6/d55/classlsl_1_1stream__outlet.html#af188fa767e2a70c402486b761e9869fe',1,'lsl::stream_outlet']]],
+  ['was_5fclock_5freset',['was_clock_reset',['../d6/dbd/classlsl_1_1stream__inlet.html#ac3b8fa8912090ad6607b05cbb5848352',1,'lsl::stream_inlet']]]
 ];
