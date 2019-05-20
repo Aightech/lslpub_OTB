@@ -8,7 +8,10 @@
 #define SAMPLING_FREQUENCY 2048
 #define CHUNK_SIZE 1
 
-
+/*
+** TODO testcpp
+   DEADLINE: <2019-05-20 lun.> SCHEDULED: <2019-05-16 jeu.>
+ */
 /**
  * @brief fill_chunk transform a unsigned char array into a typed vector of vector.
  * @tparam T Type of the vector.
