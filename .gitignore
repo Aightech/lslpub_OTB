@@ -11,10 +11,10 @@
 !.gitmodules
 !/OTBconfigGUI
 !/OTBconfigGUI/*
-!README.md
+!README.org
 !CMakeLists.txt
 !/docs
 !/docs/*
 !Doxyfile
 !todo.org
-!BUILD_LSL.md
+!BUILD_LSL.org
