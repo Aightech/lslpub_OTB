@@ -9,21 +9,21 @@ You can also follow this guide https://github.com/sccn/labstreaminglayer/blob/ma
 
 ** Steps 
 - Clone the repository and go inside.
-```bash
+#+BEGIN_SRC shell
 git clone --recurse-submodules https://github.com/labstreaminglayer/labstreaminglayer.git &&cd labstreaminglayer
-```
+#+END_SRC
 - Create a build repository and go inside.
-```bash
+#+BEGIN_SRC shell
 mkdir build && cd build
-```
+#+END_SRC
 Configure and generate the project with the GUI.
-```bash
+#+BEGIN_SRC shell
 cmake-gui
-```
+#+END_SRC
 Click on "configure". Select the MinGW MakeFile.
 Check if the boost libraries and Qt are correct.
 Then click on "generate".
 In the command prompt, build the project.
-```bash
+#+BEGIN_SRC shell
 cmake --build . --config Release --target install
-```
+#+END_SRC
