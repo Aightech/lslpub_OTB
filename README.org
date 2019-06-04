@@ -17,19 +17,26 @@ Set uo manually the IPv4:
 - *Windows 10*: Network Connections > Ethernet > properties > IPV4 > properties
 *** Usage
 - Clone the repository and go inside.
-```bash
+#+BEGIN_SRC shell
 git clone https://github.com/Aightech/lslpub_OTB.git && cd lslpub_OTB
-```
+#+END_SRC
 - Run the compiled program in the bin directory.
-- Run it with the option ```bash -h``` to get the available option.
+- Run it with the option 
+#+BEGIN_SRC shell 
+-h 
+#+END_SRC to get the available option.
 *** Build
 **** Ubuntu 18 
 - Clone the repository and go inside.
-```bash git clone https://github.com/Aightech/lslpub_OTB.git && cd lslpub_OTB ```
+#+BEGIN_SRC shell 
+git clone https://github.com/Aightech/lslpub_OTB.git && cd lslpub_OTB 
+#+END_SRC
 - Create a build directory and go inside.
 - Configure the project.
 - Build the project.
-```bash mkdir build && cd build && cmake .. && cmake --build . ```
+#+BEGIN_SRC shell 
+mkdir build && cd build && cmake .. && cmake --build . 
+#+END_SRC
 **** Windows 10
 ***** 2.2.1 Requirements
 - [[https://cmake.org/download/][Cmake]] Download and install cmake.
@@ -40,15 +47,15 @@ git clone https://github.com/Aightech/lslpub_OTB.git && cd lslpub_OTB
 
 ***** Steps
 - Clone the repository and go inside.
-```bash
+#+BEGIN_SRC shell
 git clone https://github.com/Aightech/lslpub_OTB.git && cd lslpub_OTB
-```
+#+END_SRC
 - Create a build directory.
 - Configure and generate the CMake project.
 - Build the project.
-```bash
+#+BEGIN_SRC shell
 mkdir build && cd build && cmake .. -G "MinGW Makefiles" && mingw32-make
-```
+#+END_SRC
 
 
 
