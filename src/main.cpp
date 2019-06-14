@@ -8,6 +8,42 @@
 #define SAMPLING_FREQUENCY 2048
 #define CHUNK_SIZE 1
 
+typedef struct _nw
+{
+  int portno;
+  SOCKET sockfd;
+  struct hostent *server;
+  SOCKADDR_IN serv_addr={0};
+  fd_set set;
+  struct timeval timeout;
+  
+} NW;
+
+void tcp_connect(NW* n, int portno, char* ip)
+{
+  ////////////////////// OTB IP CONNECTION //////////////////////
+  n->portno = portno;
+  n->sockfd = socket(AF_INET, SOCK_STREAM, 0);
+  if (n->sockfd < 0) error("[ERROR] Opening socket");
+    
+  n->server = gethostbyname(ip);
+  if (n->server == NULL) error("[ERROR] No such host\n");
+
+
+  n->serv_addr.sin_family = AF_INET;
+  n->serv_addr.sin_addr = *(IN_ADDR*) n->server->h_addr;
+  n->serv_addr.sin_port = htons(portno);
+    
+  std::cout << "[INFOS] Connecting to OTB quattrocento ...\xd" << std::flush;
+  if (connect(n->sockfd,(SOCKADDR *)&(n->serv_addr), sizeof(SOCKADDR)) < 0) error("ERROR connecting");
+  std::cout << "[INFOS] Connection to OTB quattrocento established." << std::endl;
+  ///////////////////////////////////////////////////////////////
+  FD_ZERO(&(n->set)); /* clear the set */
+  FD_SET(n->sockfd, &(n->set)); /* add our file descriptor to the set */
+  n->timeout.tv_sec = 1;
+  n->timeout.tv_usec = 0;
+}
+
 /*
 ** TODO testcpp
    DEADLINE: <2019-05-20 lun.> SCHEDULED: <2019-05-16 jeu.>
@@ -116,7 +152,7 @@ int main(int argc, char ** argv)
 					 "TCP chunks's size"  });
   std::vector<std::string> opt_value(
 				     {"OTB",
-					 "none",
+					 "conf.cfg",
 					 "1"});
   get_arg(argc, argv, opt_flag, opt_label, opt_value);
   
@@ -125,26 +161,12 @@ int main(int argc, char ** argv)
   int chunk_size = std::stoi(opt_value[2]);
 
 
-  ////////////////////// OTB IP CONNECTION //////////////////////
-  int portno = 23456;
-  SOCKET sockfd = socket(AF_INET, SOCK_STREAM, 0);
-  if (sockfd < 0) error("[ERROR] Opening socket");
-    
-  struct hostent *server = gethostbyname("169.254.1.10");
-  if (server == NULL) error("[ERROR] No such host\n");
-
-  SOCKADDR_IN serv_addr={0};
-  //bzero((char *) &serv_addr, sizeof(serv_addr));
-  serv_addr.sin_family = AF_INET;
-  serv_addr.sin_addr = *(IN_ADDR*) server->h_addr;
-  //bcopy((char *)server->h_addr, (char *)&serv_addr.sin_addr.s_addr,server->h_length);
-  serv_addr.sin_port = htons(portno);
-    
-  std::cout << "[INFOS] Connecting to OTB quattrocento ...\xd" << std::flush;
-  if (connect(sockfd,(SOCKADDR *) &serv_addr,sizeof(SOCKADDR)) < 0) error("ERROR connecting");
-  std::cout << "[INFOS] Connection to OTB quattrocento established." << std::endl;
-  ///////////////////////////////////////////////////////////////
+  NW network;
+  tcp_connect(&network, 23456, "169.254.1.10");
   
+
+  
+    
 
   ////////////////////// OTB CONFIGURATION //////////////////////
   // get The OTB configuration unsigned char string
@@ -155,11 +177,11 @@ int main(int argc, char ** argv)
   std::cout << "[INFOS] Reseting  OTB quattrocento acquisition...\xd" << std::flush;
   config[0] -= 1;
   config[39] = crc(config);
-  send(sockfd,(char*)config,40,0);
+  send(network.sockfd,(char*)config,40,0);
   std::cout << "[INFOS] Sending configuration request to OTB quattrocento ...\xd" << std::flush;
   config[0] += 1;
   config[39] = crc(config);
-  send(sockfd,(char*)config,40,0);
+  send(network.sockfd,(char*)config,40,0);
   std::cout << "[INFOS] OTB quattrocento configured.                         " << std::endl;
   ///////////////////////////////////////////////////////////////
   
@@ -176,14 +198,63 @@ int main(int argc, char ** argv)
 	{
 	  int data_remaining = nb_ch*chunk_size*2;
 	  while(data_remaining > 0)
-	    data_remaining -= recv(sockfd,(char*)(buffer+(nb_ch*chunk_size*2-data_remaining)), data_remaining,0);
-				
-	  fill_chunk(buffer, chunk, nb_ch);
+	    {
+	      //std::cout << data_remaining << " ";
+	      int rv = select(network.sockfd, &(network.set), NULL, NULL, &(network.timeout));
+	      if(rv == SOCKET_ERROR)
+		error("select error");
+	      else if(rv == 0)
+		{
+		   //ask to stop the acquisition
+		  std::cout << "[INFOS] Ending acquisition ...\xd" << std::endl;
+		  /*config[0] = ACQ_SETT | DECIM | FSAMP_2048 | NCH_IN1to8_MIN1to4 | ACQ_OFF;
+		  config[39] = crc(config);
+		  send(network.sockfd,(char*)config,40,0);
+		  closesocket(network.sockfd);
+		  std::cout << "[INFOS] Acquisition ended.     " << std::endl;
+		  tcp_connect(&network, 23456, "169.254.1.10");
+		  unsigned char config[40];
+		  getConf(config_file, config);
+		  int rate = get_sampling_rate(config);
+		  int nb_ch = get_nbChannels(config);
+		  std::cout << "[INFOS] Reseting  OTB quattrocento acquisition...\xd" << std::flush;
+		  config[0] -= 1;
+		  config[39] = crc(config);
+		  send(network.sockfd,(char*)config,40,0);
+		  std::cout << "[INFOS] Sending configuration request to OTB quattrocento ...\xd" << std::flush;
+		  config[0] += 1;
+		  config[39] = crc(config);
+		  send(network.sockfd,(char*)config,40,0);
+		  std::cout << "[INFOS] OTB quattrocento configured.                         " << std::endl;
+		  */
+		  send(network.sockfd,(char*)config,40,0);
+		  data_remaining = -1;
+		}
+	      else
+		{
+		  int s = recv(network.sockfd,(char*)(buffer+(nb_ch*chunk_size*2-data_remaining)), data_remaining,0);
+		  if(s == SOCKET_ERROR)
+		    error("read failed");
+		  else if(s == 0)
+		    error("peer disconnected");
+		  data_remaining -= s;
+		}
+	    }
+	  if(data_remaining==0)
+	    {
+	      fill_chunk(buffer, chunk, nb_ch);
+	      int ch=nb_ch-7;
+	      if(chunk[0][nb_ch-8]%1000==0)
+		{
+		  std::cout << "Sample count ";
+		  for(int i=0; i<8 ;i++)
+		    std::cout << nb_ch-8+i << ":" << (unsigned short) chunk[0][nb_ch-8+i]<< "  ";
+		  std::cout  << "   \xd" << std::flush;
+		}
 
-	  std::cout << "Sample counter (ch: " << nb_ch-8 << ") : " << (unsigned short) chunk[0][nb_ch-8] << "  Buffer usage: " <<  (unsigned short)chunk[0][nb_ch-5] << "   \xd" << std::flush;        
-
-	  // send it
-	  outlet.push_chunk(chunk);		
+	      // send it
+	      outlet.push_chunk(chunk);
+	    }
 	}
       while (1);
 
@@ -197,8 +268,8 @@ int main(int argc, char ** argv)
   std::cout << "[INFOS] Ending acquisition ...\xd" << std::flush;
   config[0] = ACQ_SETT | DECIM | FSAMP_2048 | NCH_IN1to8_MIN1to4 | ACQ_OFF;
   config[39] = crc(config);
-  send(sockfd,(char*)config,40,0);
-  closesocket(sockfd);
+  send(network.sockfd,(char*)config,40,0);
+  closesocket(network.sockfd);
   std::cout << "[INFOS] Acquisition ended.     " << std::endl;
     
   return 0;
