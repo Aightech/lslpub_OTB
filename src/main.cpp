@@ -152,7 +152,7 @@ int main(int argc, char ** argv)
 					 "TCP chunks's size"  });
   std::vector<std::string> opt_value(
 				     {"OTB",
-					 "conf.cfg",
+					 "config/conf.cfg",
 					 "1"});
   get_arg(argc, argv, opt_flag, opt_label, opt_value);
   

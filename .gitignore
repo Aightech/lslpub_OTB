@@ -18,3 +18,5 @@
 !Doxyfile
 !todo.org
 !BUILD_LSL.org
+!/config
+!/config/*
