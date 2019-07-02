@@ -200,45 +200,25 @@ int main(int argc, char ** argv)
 	  while(data_remaining > 0)
 	    {
 	      //std::cout << data_remaining << " ";
-	      int rv = select(network.sockfd, &(network.set), NULL, NULL, &(network.timeout));
-	      if(rv == SOCKET_ERROR)
-		error("select error");
-	      else if(rv == 0)
-		{
-		   //ask to stop the acquisition
-		  std::cout << "[INFOS] Ending acquisition ...\xd" << std::endl;
-		  /*config[0] = ACQ_SETT | DECIM | FSAMP_2048 | NCH_IN1to8_MIN1to4 | ACQ_OFF;
-		  config[39] = crc(config);
-		  send(network.sockfd,(char*)config,40,0);
-		  closesocket(network.sockfd);
-		  std::cout << "[INFOS] Acquisition ended.     " << std::endl;
-		  tcp_connect(&network, 23456, "169.254.1.10");
-		  unsigned char config[40];
-		  getConf(config_file, config);
-		  int rate = get_sampling_rate(config);
-		  int nb_ch = get_nbChannels(config);
-		  std::cout << "[INFOS] Reseting  OTB quattrocento acquisition...\xd" << std::flush;
-		  config[0] -= 1;
-		  config[39] = crc(config);
-		  send(network.sockfd,(char*)config,40,0);
-		  std::cout << "[INFOS] Sending configuration request to OTB quattrocento ...\xd" << std::flush;
-		  config[0] += 1;
-		  config[39] = crc(config);
-		  send(network.sockfd,(char*)config,40,0);
-		  std::cout << "[INFOS] OTB quattrocento configured.                         " << std::endl;
-		  */
-		  send(network.sockfd,(char*)config,40,0);
-		  data_remaining = -1;
-		}
-	      else
-		{
+	      // int rv = select(network.sockfd, &(network.set), NULL, NULL, &(network.timeout));
+	      // if(rv == -1)//SOCKET_ERROR)
+	      // 	error("select error");
+	      // else if(rv == 0)
+	      // 	{
+	      // 	   //ask to stop the acquisition
+	      // 	  std::cout << "[INFOS] Ending acquisition ...\xd" << std::endl;
+	      // 	  send(network.sockfd,(char*)config,40,0);
+	      // 	  data_remaining = -1;
+	      // 	}
+	      // else
+	      // 	{
 		  int s = recv(network.sockfd,(char*)(buffer+(nb_ch*chunk_size*2-data_remaining)), data_remaining,0);
-		  if(s == SOCKET_ERROR)
+		  if(s == -1)//SOCKET_ERROR)
 		    error("read failed");
 		  else if(s == 0)
 		    error("peer disconnected");
 		  data_remaining -= s;
-		}
+		// }
 	    }
 	  if(data_remaining==0)
 	    {
